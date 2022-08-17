@@ -11,19 +11,19 @@
       crossorigin="anonymous"/>
       
     <title>Turnip Fest</title>
-    <!-- the href has a temporary image. this is our icon for our tab -->
+<!-- the href has a temporary image. we need an icon for our tab -->
     <link rel="shortcut icon" href="images/tabfox.png">
 </head>
 <body>
     <header>
-        <h1>Turnip Fest</h1>
-        <p>International Food 1-click at a time</p>
+        <h1 id="website-title">Turnip Fest</h1>
+        <p id="slogan">International Food 1-click at a time</p>
     </header>
 
 
     <main>
-        <div class="wrap" id="foodDiet">
-            <section id="specialDiet">
+        <div class="special-diet-section" id="food-diet">
+            <section id="special-diet">
                 <h2>Special Diet</h2>
                 <input type="checkbox" id="vegetarian">
                     <label>Vegetarian</label><br>
@@ -31,19 +31,19 @@
                     <label>Vegan</label><br>
                 <input type="checkbox" id="paleo">
                     <label>Paleo</label><br>
-                <input type="checkbox" id="highFiber">
+                <input type="checkbox" id="high-fiber">
                     <label>Higher-Fiber</label><br>
-                <input type="checkbox" id="highProtein">
+                <input type="checkbox" id="high-protein">
                     <label>Higher-Protein</label><br>
-                <input type="checkbox" id="lowCarb">
+                <input type="checkbox" id="low-carb">
                     <label>Low-Carb</label><br>
-                <input type="checkbox" id="lowFat">
+                <input type="checkbox" id="low-fat">
                     <label>Low-Fat</label><br>
-                <input type="checkbox" id="lowSodium">
+                <input type="checkbox" id="low-sodium">
                     <label>Low-Sodium</label><br>
-                <input type="checkbox" id="lowSugar">
+                <input type="checkbox" id="low-sugar">
                     <label>Low-Sugar</label><br>
-                <input type="checkbox" id="alcoholFree">
+                <input type="checkbox" id="alcohol-free">
                     <label>Alcohol-Free</label><br>
                 <input type="checkbox" id="balanced">
                     <label>Balanced</label><br>
@@ -65,24 +65,24 @@
                     <label>Fish</label> <br>
                 <input type="checkbox" id="shellfish">
                     <label>Shellfish</label> <br>
-                <input type="checkbox" id="treeNuts">
+                <input type="checkbox" id="tree-nuts">
                     <label>Tree Nuts</label> <br>
                 <input type="checkbox" id="peanuts">
                     <label>Peanuts</label> <br>
             </section>
-            <button id="continueBtn">Continue</button>
+            <button id="continue-btn">Continue</button>
         </div>
        
 
-        <!-- Goal: User will be presented 6 types of cuisines. Each country will take to a list of recipes respective of the country of their choice. -->
+<!-- Goal: User will be presented 6 types of cuisines. Each country will take to a list of recipes respective of the country of their choice. -->
         <div id="country-page">
             <section id="countries">
-                <button class="countryBtn" id="chinese"></button>
-                <button class="countryBtn" id="french"></button>
-                <button class="countryBtn" id="italian"></button>
-                <button class="countryBtn" id="japanese"></button>
-                <button class="countryBtn" id="american"></button>
-                <button class="countryBtn" id="indian"></button>
+                <button class="country-btn" id="chinese"></button>
+                <button class="country-btn" id="french"></button>
+                <button class="country-btn" id="italian"></button>
+                <button class="country-btn" id="japanese"></button>
+                <button class="country-btn" id="american"></button>
+                <button class="country-btn" id="indian"></button>
             </section>
             <button id="continue-btn">Continue</button>
         </div>
@@ -90,7 +90,7 @@
         
 <!-- Goal: User can choose the different genre repsective to country they picked. -->
         <div id="music-page">
-            <section class="musicSelections">
+            <section class="genres">
                 <h3>What are we listening to?</h3>
                 <h4>Depending on what country you select choose a style of music to complement your meal.</h4>
                     <input type="checkbox" id="traditional">
@@ -99,44 +99,47 @@
                         <label>Pop</label><br>
                     <input type="checkbox" id="instrumental">
                         <Label>Instrumental</Label> <br>
-                    <input type ="checkbox" id="Rock">
+                    <input type ="checkbox" id="rock">
                         <label>Rock</label> <br>
             </section> 
-            <button id="continueBtn">Continue</button>
+            <button id="continue-btn">Continue</button>
        </div>
 
 <!-- Goal: User will be presented multiple recipe options -->
-        <section class="recipeGallerySection">
+        <section class="recipe-gallery-section">
             <h2>Congrats with the information provided these are the meals that best fit your pallet.</h2>
- <!-- JS will create the cards for the recipes since we don't know how many recipes will appear -->
-            <div class="gallery">
-
+        <!-- JS will create the cards for the recipes since we don't know how many recipes will appear -->
+            <div class="food-gallery">
             <!-- this is an example of what the card will look like. Again, JS will create these cards-->
-                <a target="_blank" href="putimagehere.jpg">
-                  <img src="img_5terre.jpg" alt="Cinque Terre" width="600" height="400">
-                </a>
-                <div class="desc">Add a description of the image here</div>
-
-
+                <div class="card">
+                    <img src="food pic.png" alt="name-alt" >
+                    <h4 id="name-recipe"></h4>
+                </div>   
             </div>
-
         </section> 
 
 <!--Goal: At this point, the music will play automatically, but the user can change the music by pressing next -->
-        <section class="recipeSection" id="recipe">
-            
+        <div id="recipe-page" >
+            <section id="recipe">
+                <div class="card">
+                    <h4 id="name-recipe"></h4>
+                    <p id="ingredients">Instructions:</p>
+                    <p id="recipe-instructions">Instructions:</p>
+                </div>   
+            </section>
 
-            <!--  -->
-            <div class="container" id="musicCarousel">
-                <h5 id="musicInstructions">Click to change the music</h4>
-                <div class="wrapper">
-                  <div class="carouselbox" >
-                    <button class="prev">◀ Previous</button>
-                    <button class="next">Next ▶</button>
-                  </div> 
+            <section>
+                <div id="music-carousel">
+                    <h5 id="music-instructions">Click to change the music</h4>
+                    <div class="wrapper">
+                    <div class="carouselbox" >
+                        <button class="prev">◀ Previous</button>
+                        <button class="next">Next ▶</button>
+                    </div> 
+                    </div>
                 </div>
-             </div>
-        </section> 
+            </section> 
+        </div>
 
 <!-- Goal: If the user decides to change their cuisine, then they can press the dropdown to change their cuisine, but they don't have to re-enter their special diets and allergies. -->
         <nav class="navbar">
