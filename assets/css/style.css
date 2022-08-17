@@ -1,1 +1,19 @@
 /* to push onto main */
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+* {
+margin: 0;
+padding: 0;
+}
+
+:root {
+    --mainpurple: #420948;
+    --footer: #19001b;
+    --header-purple: #420948c6; /* Transparency added */
+    --checkboxes-container: #17031dba; /* Transparency added */
+    --pink-shadow: #62046bd6; /* Transparency added */
+    --ligthblue: #4860cd; /* can be used for highlights */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Abril Fatface', cursive;
+  }
