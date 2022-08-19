@@ -18,6 +18,14 @@
     <header>
         <h1 id="website-title">Turnip Fest</h1>
         <p id="slogan">International Food 1-click at a time</p>
+
+   <!--nav bar adding nav bar-->
+        <nav>
+          <div class="logo" id="logo"> </div>
+          <ul>
+              <li><a href="#Home" class="active">Home</a></li>
+         </nav>
+        
     </header>
 
 
@@ -29,6 +37,7 @@
         </div>
 
         <div class="special-diet-section" id="food-diet">
+
 
             <section id="allergies" class="grid gap-2 grid-cols-3 grid-rows-3 h-50 bg-fuchsia-800">
                 <!--Moved allergies to alphabetical order-->
@@ -76,11 +85,66 @@
                 <input onclick="allergyclick(this.value, this.checked)" type ="checkbox" value="wheat-free" id="wheat-free"> <!--ID changed to wheat-free-->
                     <label id="health-labels" for="wheat-free">Wheat</label>
                 </section>
+
             <button id="continue-btn">Continue</button>
         </div>
        
 
 <!-- Goal: User will be presented 6 types of cuisines. Each country will have a list of recipes respective other cuisine. -->
+
+<div id="country-page">
+    <section id="countries">
+        <button class="country-btn" id="asian" onclick="selectCounty('asian')">
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Asian</h5>
+                </div>
+              </div>
+        </button>
+
+        <button class="country-btn" id="american" onclick="selectCounty('american')">
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">American</h5>
+                </div>
+              </div>
+        </button>
+
+        <button class="country-btn" id="italian" onclick="selectCounty('italian')">
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Italian</h5>
+                </div>
+              </div>
+        </button>
+
+        <button class="country-btn" id="caribbean" onclick="selectCounty('caribbean')">
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Caribbean</h5>
+                </div>
+              </div>
+            </button>
+
+        <button class="country-btn" id="french" onclick="selectCounty('french')">
+            <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">French</h5>
+            </div>
+          </div>
+        </button>
+
+
+        <button class="country-btn" id="indian" onclick="selectCounty('indian')">
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Indian</h5>
+                </div>
+              </div>
+        </button>
+    </section>
+</div>
+
         <div id="country-page">
             <section id="countries">
                 <button class="country-btn" id="chinese"></button>
@@ -136,7 +200,9 @@
             <div class="food-gallery">
             <!-- this is an example of what the card will look like. Again, JS will create these cards-->
                 <div class="card">
+                    
                     <!-- <img src="food pic.png" alt="name-alt" > -->
+
                     <h4 id="name-recipe"></h4>
                 </div>   
             </div>
@@ -147,6 +213,7 @@
             <section id="recipe">
                 <div class="card">
                     <h4 id="name-recipe"></h4>
+
                     <p id="ingredients">Ingredients:</p>
                     <p id="recipe-instructions">Instructions:</p>
                 </div>   
@@ -157,6 +224,7 @@
                     <h5 id="music-instructions">Click to change the music</h4>
                     <div class="wrapper">
                     <div class="carouselbox" >
+
                         <button class="previous">◀ Previous</button>
                         <button class="next">Next ▶</button>
                         <iframe id="carouselVideos" allow="autoplay" alt="music" width="420" height="315">
