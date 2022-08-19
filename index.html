@@ -29,53 +29,53 @@
         </div>
 
         <div class="special-diet-section" id="food-diet">
-            <section id="special-diet">
-                <h2>Special Diet</h2>
-                <input type="checkbox" id="vegetarian">
-                    <label>Vegetarian</label><br>
-                <input type="checkbox" id="vegan">
-                    <label>Vegan</label><br>
-                <input type="checkbox" id="paleo">
-                    <label>Paleo</label><br>
-                <input type="checkbox" id="high-fiber">
-                    <label>Higher-Fiber</label><br>
-                <input type="checkbox" id="high-protein">
-                    <label>Higher-Protein</label><br>
-                <input type="checkbox" id="low-carb">
-                    <label>Low-Carb</label><br>
-                <input type="checkbox" id="low-fat">
-                    <label>Low-Fat</label><br>
-                <input type="checkbox" id="low-sodium">
-                    <label>Low-Sodium</label><br>
-                <input type="checkbox" id="low-sugar">
-                    <label>Low-Sugar</label><br>
-                <input type="checkbox" id="alcohol-free">
-                    <label>Alcohol-Free</label><br>
-                <input type="checkbox" id="balanced">
-                    <label>Balanced</label><br>
-                <input type="checkbox" id="immunity">
-                    <label>Immunity</label><br>
-            </section>
 
-            <section id="allergies">
-                <h2>Allergies</h2>
-                <input type="checkbox" id="dairy">
-                    <label>Dairy</label> <br>
-                <input type="checkbox" id="eggs">
-                    <label>Eggs</label><br>
-                <input type="checkbox" id="soy">
-                    <Label>Soy</Label> <br>
-                <input type ="checkbox" id="wheat">
-                    <label>Wheat</label> <br>
-                <input type="checkbox" id="fish">
-                    <label>Fish</label> <br>
-                <input type="checkbox" id="shellfish">
-                    <label>Shellfish</label> <br>
-                <input type="checkbox" id="tree-nuts">
-                    <label>Tree Nuts</label> <br>
-                <input type="checkbox" id="peanuts">
-                    <label>Peanuts</label> <br>
-            </section>
+            <section id="allergies" class="grid gap-2 grid-cols-3 grid-rows-3 h-50 bg-fuchsia-800">
+                <!--Moved allergies to alphabetical order-->
+                <h2>Allergies/Restrictions:</h2> 
+                <!-- These are called "Health Labels" in the api fetch, created the "health-labels" ID for all labels and added corresponding values to match API keywords -->
+                <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="alcohol-free" id="alcohol-free">
+                    <label id="health-labels" for="alcohol-free">Alcohol-Free</label>
+                    <br>
+                <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="dairy-free" id="dairy-free"><!--ID changed to dairy-free-->
+                    <label id="health-labels" for="dairy-free">Dairy</label>
+                    <br>
+                <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="egg-free" id="egg-free"> <!--ID changed to egg-free-->
+                    <label id="health-labels" for="egg-free">Eggs</label>
+                    <br>
+                <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="fish-free" id="fish-free"> <!--ID changed to fish-free-->
+                    <label id="health-labels" for="fish-free">Fish</label>
+                    <br>
+                <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="keto-friendly" id="keto-friendly"> <!--ID and value changed to immuno-supportive-->
+                    <label id="health-labels" for="keto-friendly">Keto</label> <!--Removed inmuno for Keto-->
+                    <br>
+                 <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="low-sugar" id="low-sugar">
+                    <label id="health-labels" for="low-sugar">Low-Sugar</label>
+                    <br>
+                <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="paleo" id="paleo">
+                    <label id="health-labels" for="paleo">Paleo</label>
+                    <br>
+                <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="peanut-free" id="peanut-free"> <!--ID changed to peanut-free-->
+                    <label id="health-labels" for="peanut-free">Peanuts</label>
+                    <br>
+                <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="shellfish-free" id="shellfish-free"> <!--ID changed to shellfish-free-->
+                    <label id="health-labels" for="shellfish-free">Shellfish</label>
+                    <br>
+                <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="soy-free" id="soy-free"> <!--ID changed to soy-free-->
+                    <label id="health-labels" for="soy-free">Soy</Label>
+                    <br>
+                <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="tree-nut-free" id="tree-nut-free"> <!--ID changed to tree-nut-free-->
+                    <label id="health-labels" for="tree-nut-free">Tree Nuts</label>
+                    <br>
+                <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="vegan" id="vegan">
+                    <label id="health-labels" for="vegan">Vegan</label>
+                    <br>
+                <!-- Removed the Vegetarian Category to fit new design <input type="checkbox" value="vegetarian" id="vegetarian">
+                    <label id="health-labels" for="vegetarian">Vegetarian</label>
+                    <br> -->
+                <input onclick="allergyclick(this.value, this.checked)" type ="checkbox" value="wheat-free" id="wheat-free"> <!--ID changed to wheat-free-->
+                    <label id="health-labels" for="wheat-free">Wheat</label>
+                </section>
             <button id="continue-btn">Continue</button>
         </div>
        

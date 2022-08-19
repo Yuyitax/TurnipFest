@@ -1,4 +1,94 @@
+// Global Variables
+
+// Basic search URL for edamam:("https://api.edamam.com/api/recipes/v2");
+// Final link example for edamam: https://api.edamam.com/api/recipes/v2?type=public&q=chicken&app_id=7bb5e52a&app_key=0c1e8ad80757342d9801acaefa2e9df0&ingr=1-6&diet=balanced&health=egg-free&cuisineType=American&imageSize=REGULAR
+
+var appID = "7bb5e52a";
+var appApiKey = "0c1e8ad80757342d9801acaefa2e9df0";
+var checkedAllergies = []; // Array for "&health=" area on URL
+var checkedCuisines = []; // Array for "&cuisineType=" area on URL
+
+// DOM Elements
+// Allergies checkboxes
+var allergiesSection = $("#allergies"); // Main section ID
+var alcoholFreeCbox = $("#alcohol-free");
+var dairyCbox = $("#dairy-free");
+var eggsCbox = $("#eggs");
+var fishCbox = $("#fish-free");
+var ketoCbox = $("#keto-friendly");
+var lowSugarCbox = $("#low-sugar");
+var paleoCbox = $("#paleo");
+var peanutsCbox = $("peanut-free");
+var shellfishCbox = $("#shellfish-free");
+var soyCbox = $("#soy-free");
+var treeNutsCbox = $("#tree-nuts");
+var veganCbox = $("#vegan");
+var wheatCbox = $("#wheat-free");
+
+// Variables for for Main Sections
+var allergiesBxs = document.querySelectorAll(
+  '#allergies input[type="checkbox"]'
+);
+
+var albx = $('#allergies input[type="checkbox"]')
+console.log(allergiesBxs);
+
+// Pushing Delected Diets into the checkedallergiess array
+var arrOfdiets = [];
+allergiesBxs.forEach((el) => {
+  arrOfdiets.push(el);
+});
+
+function allergyclick(value, checked) {
+  console.log(checked);
+  
+  if (checked == true) {
+    console.log(value);
+    checkedAllergies.push(value);
+  } else if (checked !== -1) {
+    checkedAllergies.splice(checked, 1);
+  }
+  return checkedAllergies;
+} 
+
+var recipes = {
+  fetchRecipes: function (data) {
+    fetch(
+      "https://api.edamam.com/api/recipes/v2?type=public&q="
+      + qValue
+      + "&app_id="
+      + appID
+      + "&app_key="
+      + appApiKey
+      + "&ingr=1-5&health="
+      + checkedAllergies
+      + "&cuisineType="
+      + checkedCuisine
+      + "&imageSize=REGULAR"
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        this.displayRecipe(hits);
+      });
+  },
+
+  displayRecipe: function(hits) {
+    const dietLabels = hits.recipe.dietLabels;
+    const { healthLabels } = hits.recipe.healthLabels;
+    const cuisineType = hits.recipe.cuisineType;
+  
+  },
+};
 /* to push onto main */
+
+
+
+
+
+
+
+
+
 var YTAPIkey = "AIzaSyD_7qskIScu2G9J1dWitB2PLLZXyfvabIU";
 // AIzaSyD_7qskIScu2G9J1dWitB2PLLZXyfvabIU
 // 1: AIzaSyCREkvLlXKzAhqOjjsVunYzIyDuAXJJjWI
