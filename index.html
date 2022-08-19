@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-    rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
       integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
       crossorigin="anonymous"/>
@@ -92,25 +90,43 @@
                 <button class="country-btn" id="american"></button>
                 <button class="country-btn" id="indian"></button>
             </section>
-            <button id="continue-btn">Continue</button>
+            <!-- <button id="continue-btn">Continue</button> -->
         </div>
 
         
 <!-- Goal: User can choose the different genre respective to country that they picked. -->
         <div id="music-page">
+            <div id="id01" class="w3-modal">
+                <div class="w3-modal-content">
+                  <header class="w3-container w3-teal">
+                    <span onclick="document.getElementById('id01').style.display='none'"
+                    class="w3-button w3-display-topright">&times;</span>
+                    <h2>Modal Header</h2>
+                  </header>
+                  <div class="w3-container">
+                    <p>Some text..</p>
+                    <p>Some text..</p>
+                  </div>
+
+                </div>
+              </div>
+
             <section class="genres">
                 <h3>What are we listening to?</h3>
                 <h4>Depending on what country you select choose a style of music to complement your meal.</h4>
-                    <input type="checkbox" id="traditional">
-                        <label>Traditional</label> <br>
-                    <input type="checkbox" id="pop">
-                        <label>Pop</label><br>
-                    <input type="checkbox" id="instrumental">
-                        <Label>Instrumental</Label> <br>
-                    <input type ="checkbox" id="rock">
-                        <label>Rock</label> <br>
+                    <form id="select-genre">
+                        <input type="radio" id="traditional" value="traditional" name="genre">
+                            <label for="traditional">Traditional</label> <br>
+                        <input type="radio" id="pop" value="pop" name="genre">
+                            <label for="pop">Pop</label><br>
+                        <input type="radio" id="instrumental" value="instrumental" name="genre">
+                            <Label for="instrumental">Instrumental</Label> <br>
+                        <input type="radio" id="rock" value="rock" name="genre">
+                            <label for="rock">Rock</label> <br>
+                        <input type="submit" value="continue" id="continue-from-music">
+                    </form>
             </section> 
-            <button id="continue-btn">Continue</button>
+            <!-- <button id="continue-btn">Continue</button> -->
        </div>
 
 <!-- Goal: User will be presented multiple recipe options -->
@@ -120,7 +136,7 @@
             <div class="food-gallery">
             <!-- this is an example of what the card will look like. Again, JS will create these cards-->
                 <div class="card">
-                    <img src="food pic.png" alt="name-alt" >
+                    <!-- <img src="food pic.png" alt="name-alt" > -->
                     <h4 id="name-recipe"></h4>
                 </div>   
             </div>
@@ -131,7 +147,7 @@
             <section id="recipe">
                 <div class="card">
                     <h4 id="name-recipe"></h4>
-                    <p id="ingredients">Instructions:</p>
+                    <p id="ingredients">Ingredients:</p>
                     <p id="recipe-instructions">Instructions:</p>
                 </div>   
             </section>
@@ -141,9 +157,11 @@
                     <h5 id="music-instructions">Click to change the music</h4>
                     <div class="wrapper">
                     <div class="carouselbox" >
-                        <button class="prev">◀ Previous</button>
+                        <button class="previous">◀ Previous</button>
                         <button class="next">Next ▶</button>
-                    </div> 
+                        <iframe id="carouselVideos" allow="autoplay" alt="music" width="420" height="315">
+                        </iframe>
+                    </div>
                     </div>
                 </div>
             </section> 
