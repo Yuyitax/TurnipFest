@@ -4,12 +4,228 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"/>
+      
+    <title>Turnip Fest</title>
+<!-- the href has a temporary image. we need an icon for our tab -->
+    <link rel="shortcut icon" href="images/tabfox.png">
 </head>
 <body>
-    
+    <header>
+        <h1 id="website-title">Turnip Fest</h1>
+        <p id="slogan">International Food 1-click at a time</p>
+        <!--nav bar adding nav bar-->
+    <nav>
+        <div class="logo" id="logo"> </div>
+        <ul>
+            <li><a href="#Home" class="active">Home</a></li>
+        </nav>
+    </header>
+
+
+    <main>
+        <!-- search box for testing -->
+        <div class="input-group col-6 offset-3">
+            <input type="text" id="myInput" class="form-control" placeholder="Search Recipe" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" type="button" id="search">Button</button>
+        </div>
+
+        <div class="special-diet-section" id="food-diet">
+            <section id="special-diet">
+                <h2>Special Diet</h2>
+                <input type="checkbox" id="vegetarian">
+                    <label>Vegetarian</label><br>
+                <input type="checkbox" id="vegan">
+                    <label>Vegan</label><br>
+                <input type="checkbox" id="paleo">
+                    <label>Paleo</label><br>
+                <input type="checkbox" id="high-fiber">
+                    <label>Higher-Fiber</label><br>
+                <input type="checkbox" id="high-protein">
+                    <label>Higher-Protein</label><br>
+                <input type="checkbox" id="low-carb">
+                    <label>Low-Carb</label><br>
+                <input type="checkbox" id="low-fat">
+                    <label>Low-Fat</label><br>
+                <input type="checkbox" id="low-sodium">
+                    <label>Low-Sodium</label><br>
+                <input type="checkbox" id="low-sugar">
+                    <label>Low-Sugar</label><br>
+                <input type="checkbox" id="alcohol-free">
+                    <label>Alcohol-Free</label><br>
+                <input type="checkbox" id="balanced">
+                    <label>Balanced</label><br>
+                <input type="checkbox" id="immunity">
+                    <label>Immunity</label><br>
+            </section>
+<!-- specific allergies -->
+            <section id="allergies">
+                <h2>Allergies</h2>
+                <input type="checkbox" id="dairy">
+                    <label>Dairy</label> <br>
+                <input type="checkbox" id="eggs">
+                    <label>Eggs</label><br>
+                <input type="checkbox" id="soy">
+                    <Label>Soy</Label> <br>
+                <input type ="checkbox" id="wheat">
+                    <label>Wheat</label> <br>
+                <input type="checkbox" id="fish">
+                    <label>Fish</label> <br>
+                <input type="checkbox" id="shellfish">
+                    <label>Shellfish</label> <br>
+                <input type="checkbox" id="tree-nuts">
+                    <label>Tree Nuts</label> <br>
+                <input type="checkbox" id="peanuts">
+                    <label>Peanuts</label> <br>
+            </section>
+            <button id="continue-btn">Continue</button>
+        </div>
+       
+
+<!-- Goal: User will be presented 6 types of cuisines. Each country will have a list of recipes respective other cuisine. -->
+<div id="country-page">
+    <section id="countries">
+        <button class="country-btn" id="asian" onclick="selectCounty('asian')">
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Asian</h5>
+                </div>
+              </div>
+        </button>
+
+        <button class="country-btn" id="american" onclick="selectCounty('american')">
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">American</h5>
+                </div>
+              </div>
+        </button>
+
+        <button class="country-btn" id="italian" onclick="selectCounty('italian')">
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Italian</h5>
+                </div>
+              </div>
+        </button>
+
+        <button class="country-btn" id="caribbean" onclick="selectCounty('caribbean')">
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Caribbean</h5>
+                </div>
+              </div>
+            </button>
+
+        <button class="country-btn" id="french" onclick="selectCounty('french')">
+            <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">French</h5>
+            </div>
+          </div>
+        </button>
+
+
+        <button class="country-btn" id="indian" onclick="selectCounty('indian')">
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Indian</h5>
+                </div>
+              </div>
+        </button>
+    </section>
+</div>
+        
+<!-- Goal: User can choose the different genre respective to country that they picked. -->
+        <div id="music-page">
+            <section class="genres">
+                <h3>What are we listening to?</h3>
+                <h4>Depending on what country you select choose a style of music to complement your meal.</h4>
+                    <input type="checkbox" id="traditional">
+                        <label>Traditional</label> <br>
+                    <input type="checkbox" id="pop">
+                        <label>Pop</label><br>
+                    <input type="checkbox" id="instrumental">
+                        <Label>Instrumental</Label> <br>
+                    <input type ="checkbox" id="rock">
+                        <label>Rock</label> <br>
+            </section> 
+            <button id="continue-btn">Continue</button>
+       </div>
+
+<!-- Goal: User will be presented multiple recipe options -->
+        <section id="recipe-gallery-page">
+            <h2>Congrats with the information provided these are the meals that best fit your pallet.</h2>
+        <!-- JS will create the cards for the recipes since we don't know how many recipes will appear -->
+            <div class="food-gallery">
+            <!-- this is an example of what the card will look like. Again, JS will create these cards-->
+                <div class="card">
+                    <img src="food pic.png" alt="name-alt" >
+                    <h4 id="name-recipe"></h4>
+                </div>   
+            </div>
+        </section> 
+
+<!--Goal: At this point, the music will play automatically, but the user can change the music by pressing next. YouTube API will retrieve the videos -->
+        <div id="recipe-page" >
+            <section id="recipe">
+                <div class="card">
+                    <h4 id="name-recipe"></h4>
+                    <p id="ingredients">Instructions:</p>
+                    <p id="recipe-instructions">Instructions:</p>
+                </div>   
+            </section>
+
+            <section>
+                <div id="music-carousel">
+                    <h5 id="music-instructions">Click to change the music</h4>
+                    <div class="wrapper">
+                    <div class="carouselbox" >
+                        <button class="prev">◀ Previous</button>
+                        <button class="next">Next ▶</button>
+                    </div> 
+                    </div>
+                </div>
+            </section> 
+        </div>
+
+<!-- Goal: If the user decides to change their cuisine, then they can press the dropdown to change their cuisine, but they don't have to re-enter their special diets and allergies again. -->
+        <nav class="navbar">
+            <div class="logo">Turnip Fest</div>
+            <div class="nav-links">
+              <ul class="menu">
+                <li><a href="#home">Home</a></li>
+                <li class="typesOfCuisines">
+                    <a href="#cuisines">Cuisines</a>
+                    <!-- Dropdown Menu -->
+                    <ul class="dropdown">
+                        <li><a href="#chinese/">Chinese</a></li>
+                        <li><a href="#french">French</a></li>
+                        <li><a href="#italian">Italian</a></li>
+                        <li><a href=#japanese">Japanese</a></li>
+                        <li><a href="#american">American</a></li>
+                        <li><a href="#indian">Indian</a></li>
+                    </ul>
+                    </li>
+                <li><a href="#music">Music</a></li>
+                </ul>
+            </div>
+          </nav>
+
+    </main>
+
+<!-- Goal: claim ownership of the product -->
+    <footer>
+        <p>Turnip Fest-All Rights Resevered</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
