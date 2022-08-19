@@ -22,7 +22,7 @@
 
 
     <main>
-        <div class="special-diet-section" id="food-diet">
+        <div class="bg-gray-100 special-diet-section" id="food-diet">
             <section id="special-diet">
                 <h2>Special Diet</h2>
                 <input type="checkbox" id="vegetarian">
@@ -90,6 +90,21 @@
         
 <!-- Goal: User can choose the different genre respective to country that they picked. -->
         <div id="music-page">
+            <div id="id01" class="w3-modal">
+                <div class="w3-modal-content">
+                  <header class="w3-container w3-teal"> 
+                    <span onclick="document.getElementById('id01').style.display='none'" 
+                    class="w3-button w3-display-topright">&times;</span>
+                    <h2>Modal Header</h2>
+                  </header>
+                  <div class="w3-container">
+                    <p>Some text..</p>
+                    <p>Some text..</p>
+                  </div>
+
+                </div>
+              </div>
+
             <section class="genres">
                 <h3>What are we listening to?</h3>
                 <h4>Depending on what country you select choose a style of music to complement your meal.</h4>
@@ -102,7 +117,7 @@
                             <Label for="instrumental">Instrumental</Label> <br>
                         <input type="radio" id="rock" value="rock" name="genre">
                             <label for="rock">Rock</label> <br>
-                        <input type="submit" value="submit">
+                        <input type="submit" value="continue" id="continue-from-music">
                     </form>
             </section> 
             <!-- <button id="continue-btn">Continue</button> -->

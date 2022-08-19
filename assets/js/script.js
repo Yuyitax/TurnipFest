@@ -5,8 +5,8 @@ var YTAPIkey = "AIzaSyD_7qskIScu2G9J1dWitB2PLLZXyfvabIU";
 var videoSearch = "dog"
 // var genre = $("#select-genre");
 var cuisine = "french";
-var genreRadios = "pop";
-//var genreRadios = document.getElementsByName("genre");
+var userGenre;
+var genreRadios = document.getElementsByName("genre");
 var YTdata;
 var videos = []
 var currentVideoIndex = 0;
@@ -20,6 +20,29 @@ var previousBtn = carousel.querySelector(".previous");
 // };
 
 // retrieving the user's input from genres and country's section
+$("#continue-from-music").on("click", function(event){
+    event.preventDefault();
+
+    getGenre();
+    getFakeYTdata();
+})
+
+function getGenre () {
+    
+    for (var i = 0, length = genreRadios.length; i < length; i++) {
+        if (genreRadios[i].checked) {
+            
+            userGenre = genreRadios[i].value;
+        
+            // if a radio isn't checked, then stop the for loop
+            break;
+        }
+        }
+        if (userGenre === undefined || userGenre === null) {
+            document.getElementById('id01').style.display = 'block';
+        }
+}
+
 
 var getFakeYTdata = function () {
     var fakeData = {
@@ -142,7 +165,7 @@ var getFakeYTdata = function () {
 }
 
 var getYTdata = function () {
-    var queryUrlYT = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=7&q=" + cuisine + "+" + genreRadios + "+" + "music&videoDuration=short&type=video&key=" + YTAPIkey;
+    var queryUrlYT = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=7&q=" + cuisine + "+" + userGenre + "+" + "music&videoDuration=short&type=video&key=" + YTAPIkey;
     //console.log(queryUrlYT);
     fetch(queryUrlYT)
         .then(function (response) {
@@ -176,7 +199,7 @@ var getYTdata = function () {
 };
 
 
-getFakeYTdata();
+// getFakeYTdata();
 // //console.log(YTdata);
 
 function buildYTurl () {
@@ -197,7 +220,7 @@ function carouselBtn(position) {
     }
     
     console.log(videos[currentVideoIndex])
-    document.getElementById("carouselVideos").src = videos[currentVideoIndex]
+    document.getElementById("carouselVideos").src = videos[currentVideoIndex];
 
 }
 
