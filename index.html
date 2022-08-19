@@ -5,19 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <!-- <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
       integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
       crossorigin="anonymous"/>
+      <script src="https://cdn.tailwindcss.com"></script>
       
     <title>Turnip Fest</title>
 <!-- the href has a temporary image. we need an icon for our tab -->
     <link rel="shortcut icon" href="images/tabfox.png">
 </head>
 <body>
-    <header>
-        <h1 id="website-title">Turnip Fest</h1>
-        <p id="slogan">International Food 1-click at a time</p>
+    <header class="bg-[#701A75]-700">
+        <h1 id="website-title">turnipfest</h1>
 
    <!--nav bar adding nav bar-->
         <nav>
@@ -249,6 +249,16 @@
 
     </main>
 
+    <div id="cuisines" class="hidden">
+        <section id="cuisine-banner">
+
+        </section>
+        <section id="cuisine-recipes">
+
+        </section>
+
+    </div>
+   
 <!-- Goal: claim ownership of the product -->
     <footer>
         <p>Turnip Fest-All Rights Resevered</p>
