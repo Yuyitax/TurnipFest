@@ -1,4 +1,5 @@
 /* to push onto main */
+
 var YTAPIkey = "AIzaSyD_7qskIScu2G9J1dWitB2PLLZXyfvabIU";
 // AIzaSyD_7qskIScu2G9J1dWitB2PLLZXyfvabIU
 // 1: AIzaSyCREkvLlXKzAhqOjjsVunYzIyDuAXJJjWI
@@ -13,11 +14,14 @@ var currentVideoIndex = 0;
 var carousel = document.querySelector(".carouselbox");
 var nextBtn = carousel.querySelector(".next");
 var previousBtn = carousel.querySelector(".previous");
+var searchButton = document.querySelector('#search');
+var cuisine;
+var searchButton = document.querySelector('#search');
+var cuisine;
 
-
-// var getCountry = function () {
-//     $("#select-genre");
-// };
+function selectCountry(country) {
+  cuisine = country
+}
 
 // retrieving the user's input from genres and country's section
 $("#continue-from-music").on("click", function(event){
@@ -240,6 +244,7 @@ function carouselBtn(position) {
 
 var searchButton = document.querySelector('#search');
 
+
 searchButton.addEventListener('click', () => {
   console.log('button clicked');
   var inputValue = document.getElementById('myInput').value;
@@ -321,3 +326,4 @@ function useApiData(data) {
     document.body.appendChild(link);
   }
 }
+
