@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
+    border: rgb(255, 192, 203) 1px solid;
 }
 
 :root {

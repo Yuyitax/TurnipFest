@@ -36,7 +36,7 @@
             <button class="btn btn-outline-secondary" type="button" id="search">Button</button>
         </div>
 
-        <div class="special-diet-section" id="food-diet">
+        <div class="special-diet-section" id="food-diet-page">
 
 
             <section id="allergies" class="grid gap-2 grid-cols-3 grid-rows-3 h-50 bg-fuchsia-800">
@@ -86,15 +86,15 @@
                     <label id="health-labels" for="wheat-free">Wheat</label>
                 </section>
 
-            <button id="continue-btn">Continue</button>
+            <button id="food-diet-btn" onclick="displayPage('food-diet-page', 'country-page')">Continue</button>
         </div>
        
 
 <!-- Goal: User will be presented 6 types of cuisines. Each country will have a list of recipes respective other cuisine. -->
 
-<div id="country-page">
+<div class="hidden" id="country-page">
     <section id="countries">
-        <button class="country-btn" id="asian" onclick="selectCountry('asian')">
+        <button class="country-btn" id="asian" onclick="selectCountry('asian'); displayPage('country-page', 'music-page')">
             <div class="card">
                 <div class="card-body">
                   <h5 class="card-title">Asian</h5>
@@ -102,7 +102,7 @@
               </div>
         </button>
 
-        <button class="country-btn" id="american" onclick="selectCountry('american')">
+        <button class="country-btn" id="american" onclick="selectCountry('american'); displayPage('country-page', 'music-page')">
             <div class="card">
                 <div class="card-body">
                   <h5 class="card-title">American</h5>
@@ -110,7 +110,7 @@
               </div>
         </button>
 
-        <button class="country-btn" id="italian" onclick="selectCountry('italian')">
+        <button class="country-btn" id="italian" onclick="selectCountry('italian'); displayPage('country-page', 'music-page')">
             <div class="card">
                 <div class="card-body">
                   <h5 class="card-title">Italian</h5>
@@ -118,7 +118,7 @@
               </div>
         </button>
 
-        <button class="country-btn" id="caribbean" onclick="selectCountry('caribbean')">
+        <button class="country-btn" id="caribbean" onclick="selectCountry('caribbean'); displayPage('country-page', 'music-page')">
             <div class="card">
                 <div class="card-body">
                   <h5 class="card-title">Caribbean</h5>
@@ -126,7 +126,7 @@
               </div>
             </button>
 
-        <button class="country-btn" id="french" onclick="selectCountry('french')">
+        <button class="country-btn" id="french" onclick="selectCountry('french'); displayPage('country-page', 'music-page')">
             <div class="card">
             <div class="card-body">
               <h5 class="card-title">French</h5>
@@ -135,7 +135,7 @@
         </button>
 
 
-        <button class="country-btn" id="indian" onclick="selectCountry('indian')">
+        <button class="country-btn" id="indian" onclick="selectCountry('indian'); displayPage('country-page', 'music-page')">
             <div class="card">
                 <div class="card-body">
                   <h5 class="card-title">Indian</h5>
@@ -148,22 +148,7 @@
 
         
 <!-- Goal: User can choose the different genre respective to country that they picked. -->
-        <div id="music-page">
-            <div id="id01" class="w3-modal">
-                <div class="w3-modal-content">
-                  <header class="w3-container w3-teal">
-                    <span onclick="document.getElementById('id01').style.display='none'"
-                    class="w3-button w3-display-topright">&times;</span>
-                    <h2>Modal Header</h2>
-                  </header>
-                  <div class="w3-container">
-                    <p>Some text..</p>
-                    <p>Some text..</p>
-                  </div>
-
-                </div>
-              </div>
-
+        <div class="hidden" id="music-page">
             <section class="genres">
                 <h3>What are we listening to?</h3>
                 <h4>Depending on what country you select choose a style of music to complement your meal.</h4>
@@ -176,15 +161,29 @@
                             <Label for="instrumental">Instrumental</Label> <br>
                         <input type="radio" id="rock" value="rock" name="genre">
                             <label for="rock">Rock</label> <br>
-                        <input type="submit" value="continue" id="continue-from-music">
                     </form>
+
+                    <div id="id01" class="w3-modal">
+                        <div class="w3-modal-content">
+                          <header class="w3-container w3-teal">
+                            <span onclick="document.getElementById('id01').style.display='none'"
+                            class="w3-button w3-display-topright">&times;</span>
+                            <h2>Modal Header</h2>
+                          </header>
+                          <div class="w3-container">
+                            <p>Some text..</p>
+                            <p>Some text..</p>
+                          </div>
+        
+                        </div>
+                      </div>
             </section> 
-            <!-- <button id="continue-btn">Continue</button> -->
+            <button id="music-page-btn" onclick="displayPage('music-page', 'recipe-gallery-page')">Continue</button>
        </div>
 
 <!-- Goal: User will be presented multiple recipe options -->
-        <section id="recipe-gallery-page">
-            <h2>Congrats with the information provided these are the meals that best fit your pallet.</h2>
+        <section class="hidden" id="recipe-gallery-page">
+            <h2>Congrats with the information provided these are the meals that best fit your palate.</h2>
         <!-- JS will create the cards for the recipes since we don't know how many recipes will appear -->
             <div class="food-gallery">
             <!-- this is an example of what the card will look like. Again, JS will create these cards-->
@@ -198,7 +197,7 @@
         </section> 
 
 <!--Goal: At this point, the music will play automatically, but the user can change the music by pressing next. YouTube API will retrieve the videos -->
-        <div id="recipe-page" >
+        <div class="hidden" id="recipe-page" >
             <section id="recipe">
                 <div class="card">
                     <h4 id="name-recipe"></h4>
@@ -245,7 +244,7 @@
                 <li><a href="#music">Music</a></li>
                 </ul>
             </div>
-          </nav> --> -->
+          </nav> -->
 
     </main>
 

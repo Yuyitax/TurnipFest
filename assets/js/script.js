@@ -102,15 +102,17 @@ var searchButton = document.querySelector('#search');
 var cuisine;
 
 function selectCountry(country) {
-  cuisine = country
+  cuisine = country;
+  
 }
 
 // retrieving the user's input from genres and country's section
-$("#continue-from-music").on("click", function(event){
+$("#music-page-btn").on("click", function(event){
     event.preventDefault();
 
-    getGenre();
-    getFakeYTdata();
+    if (getGenre()) {;
+        getFakeYTdata();
+    }
 })
 
 function getGenre () {
@@ -123,10 +125,13 @@ function getGenre () {
             // if a radio isn't checked, then stop the for loop
             break;
         }
-        }
-        if (userGenre === undefined || userGenre === null) {
-            document.getElementById('id01').style.display = 'block';
-        }
+    }
+   
+    if (userGenre === undefined || userGenre === null) {
+        document.getElementById('id01').style.display = 'block';
+        return false;
+    }
+    return true;
 }
 
 
@@ -294,15 +299,14 @@ function buildYTurl () {
         console.log(YTdata.items[i].id.videoId);
         videos.push("https://www.youtube.com/embed/" + YTdata.items[i].id.videoId + "?autoplay=1")
     }
-    carouselBtn(0);
 }
 
 function carouselBtn(position) {
-    currentVideoIndex = currentVideoIndex + position;
-    if (currentVideoIndex < 0) {
-        currentVideoIndex = videos.length - 1;
-    } else if (currentVideoIndex > videos.length - 1) {
-        currentVideoIndex = 0;
+  currentVideoIndex = currentVideoIndex + position;
+  if (currentVideoIndex < 0) {
+      currentVideoIndex = videos.length - 1;
+  } else if (currentVideoIndex > videos.length - 1) {
+      currentVideoIndex = 0;
     }
 
     console.log(videos[currentVideoIndex])
@@ -409,3 +413,39 @@ function useApiData(data) {
   }
 }
 
+// function contBtn () {
+//     var sectionOne = document.getElementById("food-diet")
+
+//     if(sectionOne.style.display === "none") {
+//         sectionOne.style.display = "block";
+//     }
+//     else {
+//         sectionOne.style.display = "none"
+//     }
+// };
+
+
+function displayPage (currentId, nextId) {
+   console.log(currentId);
+   console.log(nextId);
+    var currentPage = document.getElementById(currentId);
+    var nextPage = document.getElementById(nextId);
+
+    
+    currentPage.classList.add("hidden");
+    nextPage.classList.remove("hidden");
+};
+
+
+//displayPage("country-page")
+
+
+
+
+// [
+//     food-diet
+//     country-page
+//     music-page
+//     recipe-gallery-page
+//     reciepe-page
+// ]
