@@ -109,7 +109,7 @@ function selectCountry(country) {
 // retrieving the user's input from genres and country's section
 $("#music-page-btn").on("click", function(event){
     event.preventDefault();
-    console.log("sadness")
+    //console.log("hi")
     if (getGenre()) {;
         getFakeYTdata();
         displayPage('music-page', 'recipe-gallery-page')
@@ -414,16 +414,6 @@ function useApiData(data) {
   }
 }
 
-// function contBtn () {
-//     var sectionOne = document.getElementById("food-diet")
-
-//     if(sectionOne.style.display === "none") {
-//         sectionOne.style.display = "block";
-//     }
-//     else {
-//         sectionOne.style.display = "none"
-//     }
-// };
 
 
 function displayPage (currentId, nextId) {
@@ -436,17 +426,3 @@ function displayPage (currentId, nextId) {
     currentPage.classList.add("hidden");
     nextPage.classList.remove("hidden");
 };
-
-
-//displayPage("country-page")
-
-
-
-
-// [
-//     food-diet
-//     country-page
-//     music-page
-//     recipe-gallery-page
-//     reciepe-page
-// ]

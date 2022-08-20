@@ -5,7 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
-    border: rgb(255, 192, 203) 1px solid;
+    /* border: rgb(255, 192, 203) 1px solid; */
 }
 
 :root {
@@ -25,12 +25,17 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 60px;
   }
 
+
 .hidden {
     display: none;
 }
 
 .show {
     display: contents;
+}
+
+.close-button {
+  float: right;
 }
 
 .logo {
