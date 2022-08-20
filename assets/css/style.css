@@ -3,8 +3,11 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     font-family: sans-serif;
+}
+body {
+    margin: 0;
+    padding: 0;
 }
 
 :root {
@@ -16,20 +19,20 @@
     --ligthblue: #4860cd; /* can be used for highlights */
   }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4 button {
+    font-family: 'Abril Fatface', cursive;
+}
+  
+#website-title a {
+    font-size: 60px;
+    color: white;
     font-family: 'Abril Fatface', cursive;
   }
-  
-#website-title {
-    font-size: 60px;
-  }
 
-.hidden {
-    display: none;
-}
+#continue-btn {
+    font-size: 28px;
+    font-family: 'Abril Fatface', cursive;
 
-.show {
-    display: contents;
 }
 
 .logo {
@@ -44,6 +47,27 @@ h1, h2, h3, h4, h5, h6 {
 
 #indiancuisine-banner {
     background-image: url(/assets/images/debashis-rc-biswas-unsplash_indiancuisine.png);
+}
+ 
+#country-page button {
+    font-size: 1.7rem;
+    font-family: 'Abril Fatface';
+    text-shadow: 4px 4px 6px black;
+    background-blend-mode: darken, luminosity;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+#country-page button:hover {
+    filter: brightness(150%);
+    text-shadow: 4px 4px 8px black;
+    box-shadow: 4px 4px 8px #7f148b;
+}
+
+
+#music-page button {
+    font-size: 1.6rem;
+    font-family: 'Abril Fatface';
+    text-shadow: 3px 3px 6px black;
 }
 
 @media screen and (max-width:1024px){
