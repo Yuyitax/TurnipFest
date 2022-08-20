@@ -103,15 +103,16 @@ var cuisine;
 
 function selectCountry(country) {
   cuisine = country;
-  
+
 }
 
 // retrieving the user's input from genres and country's section
 $("#music-page-btn").on("click", function(event){
     event.preventDefault();
-
+    console.log("sadness")
     if (getGenre()) {;
         getFakeYTdata();
+        displayPage('music-page', 'recipe-gallery-page')
     }
 })
 
@@ -128,14 +129,14 @@ function getGenre () {
     }
    
     if (userGenre === undefined || userGenre === null) {
-        document.getElementById('id01').style.display = 'block';
+        document.getElementById('id01').classList.remove("hidden");
         return false;
     }
     return true;
 }
 
 
-var getFakeYTdata = function () {
+function getFakeYTdata() {
     var fakeData = {
         "kind": "youtube#searchListResponse",
         "etag": "q3Zjdb5AXXe32RWx8Dx8s-h4c78",
@@ -255,7 +256,7 @@ var getFakeYTdata = function () {
     buildYTurl();
 }
 
-var getYTdata = function () {
+function getYTdata() {
     var queryUrlYT = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=7&q=" + cuisine + "+" + userGenre + "+" + "music&videoDuration=short&type=video&key=" + YTAPIkey;
     //console.log(queryUrlYT);
     fetch(queryUrlYT)

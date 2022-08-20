@@ -163,10 +163,10 @@
                             <label for="rock">Rock</label> <br>
                     </form>
 
-                    <div id="id01" class="w3-modal">
+                    <div id="id01" class="w3-modal hidden">
                         <div class="w3-modal-content">
                           <header class="w3-container w3-teal">
-                            <span onclick="document.getElementById('id01').style.display='none'"
+                            <span onclick="document.getElementById('id01').classList.add('hidden')"
                             class="w3-button w3-display-topright">&times;</span>
                             <h2>Modal Header</h2>
                           </header>
@@ -174,11 +174,10 @@
                             <p>Some text..</p>
                             <p>Some text..</p>
                           </div>
-        
                         </div>
-                      </div>
+                    </div>
             </section> 
-            <button id="music-page-btn" onclick="displayPage('music-page', 'recipe-gallery-page')">Continue</button>
+            <button id="music-page-btn">Continue</button>
        </div>
 
 <!-- Goal: User will be presented multiple recipe options -->
