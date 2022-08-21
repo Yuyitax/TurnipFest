@@ -29,6 +29,22 @@ h1, h2, h3, h4 button {
     font-family: 'Abril Fatface', cursive;
   }
 
+#cuisine-title-logo a {
+    font-size: 44px;
+    color: white;
+    font-family: 'Abril Fatface', cursive;
+    text-align: left;
+
+}
+#cuisine-title {
+    font-size: 65px;
+    color: white;
+    font-family: 'Abril Fatface', cursive;
+    text-align: center;
+    text-shadow: 3px 3px 8px #19001b;
+
+}
+
 #continue-btn {
     font-size: 28px;
     font-family: 'Abril Fatface', cursive;
@@ -62,7 +78,6 @@ h1, h2, h3, h4 button {
     text-shadow: 4px 4px 8px black;
     box-shadow: 4px 4px 8px #7f148b;
 }
-
 
 #music-page button {
     font-size: 1.6rem;

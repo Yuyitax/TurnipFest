@@ -4,8 +4,8 @@
 // Global Variables for EDAMAME API Fetch
 var appID = "7bb5e52a";
 var appApiKey = "0c1e8ad80757342d9801acaefa2e9df0";
-var checkedAllergies = []; // Array for "&health=" area on URL
 var qValue = [];
+var checkedAllergies = []; // Array for "&health=" area on URL
 var checkedCuisine = "";
 // var searchButton = document.querySelector('#search');
 
@@ -86,7 +86,6 @@ var recipes = {
 
 
 // Brians part of EDAMAME:
-
 searchButton.addEventListener('click', () => {
   console.log('button clicked');
   var inputValue = document.getElementById('myInput').value;
@@ -98,6 +97,8 @@ async function sendApiRequest(inputValue) {
   let APP_ID = '7bb5e52a';
   let API_KEY = '0c1e8ad80757342d9801acaefa2e9df0';
   console.log(inputValue);
+
+  // Remove this fetch eventually
   let response = await fetch(
     `https://api.edamam.com/api/recipes/v2?type=public&app_id=${APP_ID}&app_key=${API_KEY}&q=${inputValue}`
   );
@@ -168,11 +169,6 @@ function useApiData(data) {
     document.body.appendChild(link);
   }
 }
-
-
-
-
-
 
 
 
