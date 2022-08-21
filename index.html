@@ -13,179 +13,137 @@
       
     <title>Turnip Fest</title>
 <!-- the href has a temporary image. we need an icon for our tab -->
-    <link rel="shortcut icon" href="images/newTurnip.png">
+    <link rel="shortcut icon" href="assets/images/newTurnip.png">
 </head>
-<body>
-    <header class="bg-[#701A75]-700">
-        <h1 id="website-title">turnipfest</h1>
-
-   <!--nav bar adding nav bar-->
-        <nav>
-          <div class="logo" id="logo"> </div>
-          <ul>
-              <li><a href="#Home" class="active">Home</a></li>
-         </nav>
-        
+<body class="bg-cover bg-[url('/assets/images/pratham-gupta-unsplash_mdf.png')] bg-no-repeat w-full">
+    <!-- <body class=""> -->
+    <header class="bg-[#420948]/80 p-4">
+        <h1 id="website-title" class="drop-shadow-lg ml-4"><a href="#Home" class="active">turnipfest</a></h1>
+        <img src="" id="logo">
     </header>
 
+    <main class="mt-[10%]">
 
-    <main>
-        <!-- search box for testing -->
-        <div class="input-group col-6 offset-3">
-            <input type="text" id="myInput" class="form-control" placeholder="Search Recipe" aria-label="Recipient's username" aria-describedby="button-addon2">
-            <button class="btn btn-outline-secondary" type="button" id="search">Button</button>
-        </div>
+        <!-- Added this new div for the main purple box -->
+        <div id="purple-container" class="flex flex-col h-fit bg-[#17031D]/80 mx-auto pt-5 pb-5 rounded-2xl w-3/4 mb-[10%] bg-local visible">
 
-        <div class="special-diet-section" id="food-diet-page">
-
-
-            <section id="allergies" class="grid gap-2 grid-cols-3 grid-rows-3 h-50 bg-fuchsia-800">
-                <!--Moved allergies to alphabetical order-->
-                <h2>Allergies/Restrictions:</h2> 
-                <!-- These are called "Health Labels" in the api fetch, created the "health-labels" ID for all labels and added corresponding values to match API keywords -->
-                <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="alcohol-free" id="alcohol-free">
-                    <label id="health-labels" for="alcohol-free">Alcohol-Free</label>
-                    <br>
-                <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="dairy-free" id="dairy-free"><!--ID changed to dairy-free-->
-                    <label id="health-labels" for="dairy-free">Dairy</label>
-                    <br>
-                <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="egg-free" id="egg-free"> <!--ID changed to egg-free-->
-                    <label id="health-labels" for="egg-free">Eggs</label>
-                    <br>
-                <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="fish-free" id="fish-free"> <!--ID changed to fish-free-->
-                    <label id="health-labels" for="fish-free">Fish</label>
-                    <br>
-                <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="keto-friendly" id="keto-friendly"> <!--ID and value changed to immuno-supportive-->
-                    <label id="health-labels" for="keto-friendly">Keto</label> <!--Removed inmuno for Keto-->
-                    <br>
-                 <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="low-sugar" id="low-sugar">
-                    <label id="health-labels" for="low-sugar">Low-Sugar</label>
-                    <br>
-                <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="paleo" id="paleo">
-                    <label id="health-labels" for="paleo">Paleo</label>
-                    <br>
-                <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="peanut-free" id="peanut-free"> <!--ID changed to peanut-free-->
-                    <label id="health-labels" for="peanut-free">Peanuts</label>
-                    <br>
-                <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="shellfish-free" id="shellfish-free"> <!--ID changed to shellfish-free-->
-                    <label id="health-labels" for="shellfish-free">Shellfish</label>
-                    <br>
-                <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="soy-free" id="soy-free"> <!--ID changed to soy-free-->
-                    <label id="health-labels" for="soy-free">Soy</Label>
-                    <br>
-                <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="tree-nut-free" id="tree-nut-free"> <!--ID changed to tree-nut-free-->
-                    <label id="health-labels" for="tree-nut-free">Tree Nuts</label>
-                    <br>
-                <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="vegan" id="vegan">
-                    <label id="health-labels" for="vegan">Vegan</label>
-                    <br>
-                <!-- Removed the Vegetarian Category to fit new design <input type="checkbox" value="vegetarian" id="vegetarian">
-                    <label id="health-labels" for="vegetarian">Vegetarian</label>
-                    <br> -->
-                <input onclick="allergyclick(this.value, this.checked)" type ="checkbox" value="wheat-free" id="wheat-free"> <!--ID changed to wheat-free-->
-                    <label id="health-labels" for="wheat-free">Wheat</label>
+            <div id="food-diet-page" class="flex flex-wrap flex-col p-10">
+                <!-- search box area, this is the "q" element on the api fetch -->
+                <section id="search-bar-area"> -->
+                    <h2 class="text-[30px] leading-loose mb-5 text-white">Think of a food, or ingredient..</h2>
+                    <input type="text" id="search" class="form-control mb-10 w-[420px] h-[35px] rounded-md p-2 caret-pink-500" placeholder="Now type it here..Chicken, rice, pizza?">
+                    <!-- <button class="btn btn-outline-secondary text-white" type="button" id="search">Button</button> -->
                 </section>
 
-            <button id="food-diet-btn" onclick="displayPage('food-diet-page', 'country-page')">Continue</button>
-        </div>
-       
-
-<!-- Goal: User will be presented 6 types of cuisines. Each country will have a list of recipes respective other cuisine. -->
-
-<div class="hidden" id="country-page">
-    <section id="countries">
-        <button class="country-btn" id="asian" onclick="selectCountry('asian'); displayPage('country-page', 'music-page')">
-            <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Asian</h5>
-                </div>
-              </div>
-        </button>
-
-        <button class="country-btn" id="american" onclick="selectCountry('american'); displayPage('country-page', 'music-page')">
-            <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">American</h5>
-                </div>
-              </div>
-        </button>
-
-        <button class="country-btn" id="italian" onclick="selectCountry('italian'); displayPage('country-page', 'music-page')">
-            <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Italian</h5>
-                </div>
-              </div>
-        </button>
-
-        <button class="country-btn" id="caribbean" onclick="selectCountry('caribbean'); displayPage('country-page', 'music-page')">
-            <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Caribbean</h5>
-                </div>
-              </div>
-            </button>
-
-        <button class="country-btn" id="french" onclick="selectCountry('french'); displayPage('country-page', 'music-page')">
-            <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">French</h5>
-            </div>
-          </div>
-        </button>
-
-
-        <button class="country-btn" id="indian" onclick="selectCountry('indian'); displayPage('country-page', 'music-page')">
-            <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Indian</h5>
-                </div>
-              </div>
-        </button>
-    </section>
-</div>
-
-
-        
-<!-- Goal: User can choose the different genre respective to country that they picked. -->
-        <div class="hidden" id="music-page">
-            <section class="genres">
-                <h3>What are we listening to?</h3>
-                <h4>Depending on what country you select choose a style of music to complement your meal.</h4>
-                    <form id="select-genre">
-                        <input type="radio" id="traditional" value="traditional" name="genre">
-                            <label for="traditional">Traditional</label> <br>
-                        <input type="radio" id="pop" value="pop" name="genre">
-                            <label for="pop">Pop</label><br>
-                        <input type="radio" id="instrumental" value="instrumental" name="genre">
-                            <Label for="instrumental">Instrumental</Label> <br>
-                        <input type="radio" id="rock" value="rock" name="genre">
-                            <label for="rock">Rock</label> <br>
-                    </form>
-
-                    <div id="id01" class="flex items-center justify-center h-1.5 w3-modal hidden">
-                        <div class="w3-modal-content border-solid border-2 border-[#111827] bg-gray-50 p-4">
-                          <header class="w3-container w3-teal"> 
-                            <span onclick="document.getElementById('id01').classList.add('hidden')"
-                            class="h-1.5 close-button">&times;</span><br>
-                            <h2>Error:</h2><br>
-                          </header>
-                          <div class="w3-container">
-                            <p>Please select a genre.</p>
-                          </div>
+                <!-- This is the Allergies/Restrictions checkbox section -->
+                <h2 class="text-[30px] leading-loose mb-5 text-white">Allergies/Restrictions:</h2>
+                <section id="allergies" class="columns-3 text-white leading-8 pb-6 text-[18px]">
+                    <!-- These are called "Health Labels" in the api fetch, created the "health-labels" ID for all labels and added corresponding values to match API keywords -->
+                    <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="alcohol-free" id="alcohol-free">
+                        <label id="health-labels" for="alcohol-free">Alcohol-Free</label>
+                        <br>
+                    <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="dairy-free" id="dairy-free"><!--ID changed to dairy-free-->
+                        <label id="health-labels" for="dairy-free">Dairy</label>
+                        <br>
+                    <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="egg-free" id="egg-free"> <!--ID changed to egg-free-->
+                        <label id="health-labels" for="egg-free">Eggs</label>
+                        <br>
+                    <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="fish-free" id="fish-free"> <!--ID changed to fish-free-->
+                        <label id="health-labels" for="fish-free">Fish</label>
+                        <br>
+                    <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="keto-friendly" id="keto-friendly">
+                        <label id="health-labels" for="keto-friendly">Keto</label>
+                        <br>
+                    <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="kosher" id="kosher">
+                        <label id="health-labels" for="kosher">Kosher</label>
+                        <br>
+                    <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="low-sugar" id="low-sugar">
+                        <label id="health-labels" for="low-sugar">Low-Sugar</label>
+                        <br>
+                    <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="paleo" id="paleo">
+                        <label id="health-labels" for="paleo">Paleo</label>
+                        <br>
+                    <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="peanut-free" id="peanut-free"> <!--ID changed to peanut-free-->
+                        <label id="health-labels" for="peanut-free">Peanuts</label>
+                        <br>
+                    <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="shellfish-free" id="shellfish-free">
+                        <label id="health-labels" for="shellfish-free">Shellfish</label>
+                        <br>
+                    <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="soy-free" id="soy-free">
+                        <label id="health-labels" for="soy-free">Soy</Label>
+                        <br>
+                    <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="tree-nut-free" id="tree-nut-free">
+                        <label id="health-labels" for="tree-nut-free">Tree Nuts</label>
+                        <br>
+                    <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="vegan" id="vegan">
+                        <label id="health-labels" for="vegan">Vegan</label>
+                        <br>
+                        <input onclick="allergyclick(this.value, this.checked)" type ="checkbox" value="wheat-free" id="wheat-free"> <!--ID changed to wheat-free-->
+                            <label id="health-labels" for="wheat-free">Wheat</label>
+                </section>
+                        <div id="id01" class="flex items-center justify-center h-1.5 w3-modal hidden">
+                            <div class="w3-modal-content border-solid border-2 border-[#111827] bg-gray-50 p-4">
+                            <header class="w3-container w3-teal">
+                                <span onclick="document.getElementById('id01').classList.add('hidden')"
+                                class="h-1.5 close-button">&times;</span><br>
+                                <h2>Error:</h2><br>
+                            </header>
+                            <div class="w3-container">
+                                <p>Please enter an ingredient.</p>
+                            </div>
+                            </div>
                         </div>
-                    </div>
-            </section> 
-            <button id="music-page-btn">Continue</button>
-       </div>
+                <!--This is the first continue btn-->
+                <div class="text-right mt-10 pr-5">
+                    <button id="continue-btn" onclick="displayPage('food-diet-page', 'country-page')" class="text-white pr-6 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-blue-500 duration-300 rounded-xl ">Continue <span class="fa fa-angle-right"></span></button>
+                </div>
+            </div>
 
+
+            <!--Testing Cleaner Cuisines Area-->
+            <div id="country-page" class="hidden p-10">
+                <h2 class="text-[32px] leading-loose mb-5 text-white text-center">Where would you like to take your taste buds?</h2>
+                <section class="mx-auto grid grid-cols-3 gap-10 w-fit">
+
+                <button id="american" class="bg-[url('/assets/images/american-cuisine.png')] bg-contain h-[200px] w-[200px] text-white ml-5 mr-5" type="submit" value="american" onclick="selectCountry('american'); displayPage('country-page', 'music-page')">American</button>
+
+                <button id="asian" class="bg-[url('/assets/images/asian-cuisine.png')] bg-contain h-[200px] w-[200px] text-white ml-5 mr-5" type="submit" value="asian" onclick="selectCountry('asian'); displayPage('country-page', 'music-page')">Asian</button>
+
+                <button id="caribbean" class="bg-[url('/assets/images/caribbean-cuisine.png')] bg-contain h-[200px] w-[200px] text-white ml-5 mr-5" type="submit" value="caribbean" onclick="selectCountry('caribbean'); displayPage('country-page', 'music-page')">Caribbean</button>
+
+                <button id="french" class="bg-[url('/assets/images/french-cuisine.png')] bg-contain h-[200px] w-[200px] text-white ml-5 mr-5" type="submit" value="french" onclick="selectCountry('french'); displayPage('country-page', 'music-page')">French</button>
+
+                <button id="indian" class="bg-[url('/assets/images/indian-cuisine.png')] bg-contain h-[200px] w-[200px] text-white ml-5 mr-5" type="submit" value="indian" onclick="selectCountry('indian'); displayPage('country-page', 'music-page')">Indian</button>
+
+                <button id="italian" class="bg-[url('/assets/images/italian-cuisine.png')] bg-contain h-[200px] w-[200px] text-white ml-5 mr-5" type="submit" value="italian" onclick="selectCountry('italian'); displayPage('country-page', 'music-page')">Italian</button>
+                </section>
+            </div>
+        
+
+<!-- Goal: User can choose the different genre respective to country that they picked. -->
+            <div class="hidden p-10" id="music-page">
+                <section class="genres">
+                    <h2 class="text-[32px] leading-loose mb-2 text-white text-center">What genre inspires you most?</h2>
+                    <p class="text-[18px] mb-8 text-white text-center">You'll be inspired with music from your cuisine of choice.</p>
+                        <form  class="flex flex-wrap mx-auto w-fit" id="select-genre">
+                            <button class="bg-[url('assets/images/vinyl-yellow.png')] bg-contain h-[210px] w-[210px] text-white hover:animate-spin" onclick="musicPageContinue('traditional')" type="radio" id="traditional" value="traditional" name="genre">Traditional</button>
+                            <button class="bg-[url('/assets/images/vinyl-purple.png')] bg-contain h-[210px] w-[210px] text-white hover:animate-spin" onclick="musicPageContinue('pop')" type="radio" id="pop" value="pop" name="genre">Pop</button>
+                            <button class="bg-[url('/assets/images/vinyl-teal.png')] bg-contain h-[210px] w-[210px] text-white ml-5 mr-5 hover:animate-spin" onclick="musicPageContinue('instrumental')" type="radio" id="instrumental" value="instrumental" name="genre">Instrumental</button>
+                            <button class="bg-[url('/assets/images/vinyl-red.png')] bg-contain h-[210px] w-[210px] text-white ml-5 hover:animate-spin" onclick="musicPageContinue('rock')" type="radio" id="rock" value="rock" name="genre">Rock</button>
+                        </form>
+
+                        
+                </section>
+            </div>
+        </div>
+<!--We are moving this section to the cuisine.html file. Should be deleted from here on final file-->
 <!-- Goal: User will be presented multiple recipe options -->
         <section class="hidden" id="recipe-gallery-page">
             <h2>Congrats with the information provided these are the meals that best fit your palate.</h2>
         <!-- JS will create the cards for the recipes since we don't know how many recipes will appear -->
-            <div class="food-gallery">
+            <div class="food-gallery hidden">
             <!-- this is an example of what the card will look like. Again, JS will create these cards-->
-                <div class="card">
+                <div class="card hidden">
                     
                     <!-- <img src="food pic.png" alt="name-alt" > -->
 
@@ -194,6 +152,7 @@
             </div>
         </section> 
 
+<!--We are moving this section to the cuisine.html file. Should be deleted from here on final file-->
 <!--Goal: At this point, the music will play automatically, but the user can change the music by pressing next. YouTube API will retrieve the videos -->
         <div class="hidden" id="recipe-page" >
             <section id="recipe">
@@ -246,20 +205,12 @@
 
     </main>
 
-    <div id="cuisines" class="hidden">
-        <section id="cuisine-banner">
 
-        </section>
-        <section id="cuisine-recipes">
-
-        </section>
-
-    </div>
-   
 <!-- Goal: claim ownership of the product -->
-    <footer>
-        <p>Turnip Fest-All Rights Resevered</p>
+    <footer class="bg-[#17031D] text-white p-2 text-center mb-0 w-full">
+        <p>turnipfest - All Rights Resevered, 2022</p>
     </footer>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/js/script.js"></script>

@@ -1,29 +1,53 @@
-// Global Variables
-
 // Basic search URL for edamam:("https://api.edamam.com/api/recipes/v2");
 // Final link example for edamam: https://api.edamam.com/api/recipes/v2?type=public&q=chicken&app_id=7bb5e52a&app_key=0c1e8ad80757342d9801acaefa2e9df0&ingr=1-6&diet=balanced&health=egg-free&cuisineType=American&imageSize=REGULAR
 
+// Global Variables for EDAMAME API Fetch
 var appID = "7bb5e52a";
 var appApiKey = "0c1e8ad80757342d9801acaefa2e9df0";
 var checkedAllergies = []; // Array for "&health=" area on URL
-var checkedCuisines = []; // Array for "&cuisineType=" area on URL
+var qValue = [];
+var checkedCuisine = "";
+// var searchButton = document.querySelector('#search');
+
 
 // DOM Elements
 // Allergies checkboxes
 var allergiesSection = $("#allergies"); // Main section ID
-var alcoholFreeCbox = $("#alcohol-free");
-var dairyCbox = $("#dairy-free");
-var eggsCbox = $("#eggs");
-var fishCbox = $("#fish-free");
-var ketoCbox = $("#keto-friendly");
-var lowSugarCbox = $("#low-sugar");
-var paleoCbox = $("#paleo");
-var peanutsCbox = $("peanut-free");
-var shellfishCbox = $("#shellfish-free");
-var soyCbox = $("#soy-free");
-var treeNutsCbox = $("#tree-nuts");
-var veganCbox = $("#vegan");
-var wheatCbox = $("#wheat-free");
+
+// We are currrently not using these variables:
+// var alcoholFreeCbox = $("#alcohol-free");
+// var dairyCbox = $("#dairy-free");
+// var eggsCbox = $("#eggs");
+// var fishCbox = $("#fish-free");
+// var ketoCbox = $("#keto-friendly");
+// var lowSugarCbox = $("#low-sugar");
+// var paleoCbox = $("#paleo");
+// var peanutsCbox = $("peanut-free");
+// var shellfishCbox = $("#shellfish-free");
+// var soyCbox = $("#soy-free");
+// var treeNutsCbox = $("#tree-nuts");
+// var veganCbox = $("#vegan");
+// var wheatCbox = $("#wheat-free");
+
+
+// This is the Youtube API Section:
+
+var YTAPIkey = "AIzaSyD_7qskIScu2G9J1dWitB2PLLZXyfvabIU";
+// AIzaSyD_7qskIScu2G9J1dWitB2PLLZXyfvabIU
+// 1: AIzaSyCREkvLlXKzAhqOjjsVunYzIyDuAXJJjWI
+var videoSearch = "dog"
+// var genre = $("#select-genre");
+var cuisine = "french";
+var userGenre;
+var genreRadios = document.getElementsByName("genre");
+var YTdata;
+var videos = []
+var currentVideoIndex = 0;
+var carousel = document.querySelector(".carouselbox");
+var nextBtn = carousel.querySelector(".next");
+var previousBtn = carousel.querySelector(".previous");
+// var searchButton = document.querySelector('#search');
+var cuisine;
 
 // Variables for for Main Sections
 var allergiesBxs = document.querySelectorAll(
@@ -50,7 +74,7 @@ function allergyclick(value, checked) {
   }
   return checkedAllergies;
 } 
-
+// Cristina's ftch
 var recipes = {
   fetchRecipes: function (data) {
     fetch(
@@ -79,27 +103,101 @@ var recipes = {
   
   },
 };
-/* to push onto main */
 
 
-var YTAPIkey = "AIzaSyD_7qskIScu2G9J1dWitB2PLLZXyfvabIU";
-// AIzaSyD_7qskIScu2G9J1dWitB2PLLZXyfvabIU
-// 1: AIzaSyCREkvLlXKzAhqOjjsVunYzIyDuAXJJjWI
-var videoSearch = "dog"
-// var genre = $("#select-genre");
-var cuisine = "french";
-var userGenre;
-var genreRadios = document.getElementsByName("genre");
-var YTdata;
-var videos = []
-var currentVideoIndex = 0;
-var carousel = document.querySelector(".carouselbox");
-var nextBtn = carousel.querySelector(".next");
-var previousBtn = carousel.querySelector(".previous");
-var searchButton = document.querySelector('#search');
-var cuisine;
-var searchButton = document.querySelector('#search');
-var cuisine;
+// Brians part of EDAMAME:
+
+// searchButton.addEventListener('click', () => {
+//   console.log('button clicked');
+//   var inputValue = document.getElementById('myInput').value;
+//   console.log(inputValue);
+//   sendApiRequest(inputValue);
+// });
+
+async function sendApiRequest(inputValue) {
+  let APP_ID = '7bb5e52a';
+  let API_KEY = '0c1e8ad80757342d9801acaefa2e9df0';
+  console.log(inputValue);
+  let response = await fetch(
+    `https://api.edamam.com/api/recipes/v2?type=public&app_id=${APP_ID}&app_key=${API_KEY}&q=${inputValue}`
+  );
+  console.log(response);
+  let data = await response.json();
+  console.log(data);
+  useApiData(data);
+}
+
+function useApiData(data) {
+  // 4 RESULTS
+  for (var i = 0; i < 4; i++) {
+    var image = document.createElement('img');
+    var title = document.createElement('h1');
+    var ingredients = document.createElement('p');
+    var serving = document.createElement('p');
+    var calories = document.createElement('p');
+    var fat = document.createElement('p');
+    var protein = document.createElement('p');
+    var carbs = document.createElement('p');
+    var sodium = document.createElement('p');
+    var link = document.createElement('p');
+
+    // foodImgEl.setAttribute("src", imgURL);
+    // foodImgEl.setAttribute("alt", "Picture of prepared recipe");
+
+    // Image
+    // image.textContent = data.hits[i].recipe.image;
+    // console.log(image);
+    // Title
+    title.textContent = data.hits[i].recipe.label;
+    console.log(title);
+    // Ingredients
+    ingredients.textContent = data.hits[i].recipe.ingredientsLines;
+    console.log(ingredients);
+    // Serving Size
+    serving.textContent = data.hits[i].recipe.yield;
+    console.log(serving);
+    // Total Calories
+    calories.textContent = data.hits[i].recipe.calories.toFixed(2);
+    console.log(calories);
+    // Total Fat
+    fat.textContent = data.hits[i].recipe.digest[0].total.toFixed(2);
+    console.log(fat);
+    // Total Carbs
+    carbs.textContent = data.hits[i].recipe.digest[1].total.toFixed(2);
+    console.log(carbs);
+    // Total Protein
+    protein.textContent = data.hits[i].recipe.digest[2].total.toFixed(2);
+    console.log(protein);
+    // Total Sodium
+    sodium.textContent = data.hits[i].recipe.digest[3].total.toFixed(2);
+    console.log(sodium);
+    // Link
+    link.textContent = data.hits[i].recipe.shareAs;
+    console.log(link);
+
+    // TODO: append to actual card / this is for testing
+    // document.body.appendChild(image);
+    document.body.appendChild(title);
+    document.body.appendChild(ingredients);
+    document.body.appendChild(serving);
+    document.body.appendChild(calories);
+    document.body.appendChild(fat);
+    document.body.appendChild(protein);
+    document.body.appendChild(carbs);
+    document.body.appendChild(sodium);
+    document.body.appendChild(link);
+  }
+}
+
+
+
+
+
+
+
+
+
+
 
 function selectCountry(country) {
   cuisine = country;
@@ -107,14 +205,13 @@ function selectCountry(country) {
 }
 
 // retrieving the user's input from genres and country's section
-$("#music-page-btn").on("click", function(event){
-    event.preventDefault();
-    //console.log("hi")
-    if (getGenre()) {;
-        getFakeYTdata();
-        displayPage('music-page', 'recipe-gallery-page')
-    }
-})
+
+function musicPageContinue(userMusic) {
+
+  userGenre = userMusic
+    getFakeYTdata();
+    displayPage('music-page', 'recipe-gallery-page')
+}
 
 function getGenre () {
 
@@ -127,7 +224,7 @@ function getGenre () {
             break;
         }
     }
-   
+
     if (userGenre === undefined || userGenre === null) {
         document.getElementById('id01').classList.remove("hidden");
         return false;
@@ -328,101 +425,13 @@ function carouselBtn(position) {
   });
 
 
-
-var searchButton = document.querySelector('#search');
-
-
-searchButton.addEventListener('click', () => {
-  console.log('button clicked');
-  var inputValue = document.getElementById('myInput').value;
-  console.log(inputValue);
-  sendApiRequest(inputValue);
-});
-
-async function sendApiRequest(inputValue) {
-  let APP_ID = '7bb5e52a';
-  let API_KEY = '0c1e8ad80757342d9801acaefa2e9df0';
-  console.log(inputValue);
-  let response = await fetch(
-    `https://api.edamam.com/api/recipes/v2?type=public&app_id=${APP_ID}&app_key=${API_KEY}&q=${inputValue}`
-  );
-  console.log(response);
-  let data = await response.json();
-  console.log(data);
-  useApiData(data);
-}
-
-function useApiData(data) {
-  // 4 RESULTS
-  for (var i = 0; i < 4; i++) {
-    var image = document.createElement('img');
-    var title = document.createElement('h1');
-    var ingredients = document.createElement('p');
-    var serving = document.createElement('p');
-    var calories = document.createElement('p');
-    var fat = document.createElement('p');
-    var protein = document.createElement('p');
-    var carbs = document.createElement('p');
-    var sodium = document.createElement('p');
-    var link = document.createElement('p');
-
-    // foodImgEl.setAttribute("src", imgURL);
-    // foodImgEl.setAttribute("alt", "Picture of prepared recipe");
-
-    // Image
-    // image.textContent = data.hits[i].recipe.image;
-    // console.log(image);
-    // Title
-    title.textContent = data.hits[i].recipe.label;
-    console.log(title);
-    // Ingredients
-    ingredients.textContent = data.hits[i].recipe.ingredientsLines;
-    console.log(ingredients);
-    // Serving Size
-    serving.textContent = data.hits[i].recipe.yield;
-    console.log(serving);
-    // Total Calories
-    calories.textContent = data.hits[i].recipe.calories.toFixed(2);
-    console.log(calories);
-    // Total Fat
-    fat.textContent = data.hits[i].recipe.digest[0].total.toFixed(2);
-    console.log(fat);
-    // Total Carbs
-    carbs.textContent = data.hits[i].recipe.digest[1].total.toFixed(2);
-    console.log(carbs);
-    // Total Protein
-    protein.textContent = data.hits[i].recipe.digest[2].total.toFixed(2);
-    console.log(protein);
-    // Total Sodium
-    sodium.textContent = data.hits[i].recipe.digest[3].total.toFixed(2);
-    console.log(sodium);
-    // Link
-    link.textContent = data.hits[i].recipe.shareAs;
-    console.log(link);
-
-    // TODO: append to actual card / this is for testing
-    // document.body.appendChild(image);
-    document.body.appendChild(title);
-    document.body.appendChild(ingredients);
-    document.body.appendChild(serving);
-    document.body.appendChild(calories);
-    document.body.appendChild(fat);
-    document.body.appendChild(protein);
-    document.body.appendChild(carbs);
-    document.body.appendChild(sodium);
-    document.body.appendChild(link);
-  }
-}
-
-
-
-function displayPage (currentId, nextId) {
-   console.log(currentId);
-   console.log(nextId);
-    var currentPage = document.getElementById(currentId);
-    var nextPage = document.getElementById(nextId);
-
-    
-    currentPage.classList.add("hidden");
-    nextPage.classList.remove("hidden");
-};
+  function displayPage (currentId, nextId) {
+    console.log(currentId);
+    console.log(nextId);
+     var currentPage = document.getElementById(currentId);
+     var nextPage = document.getElementById(nextId);
+ 
+     
+     currentPage.classList.add("hidden");
+     nextPage.classList.remove("hidden");
+ };
