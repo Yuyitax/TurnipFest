@@ -34,15 +34,14 @@ h1, h2, h3, h4 button {
     color: white;
     font-family: 'Abril Fatface', cursive;
     text-align: left;
-
 }
+
 #cuisine-title {
     font-size: 65px;
     color: white;
     font-family: 'Abril Fatface', cursive;
     text-align: center;
     text-shadow: 3px 3px 8px #19001b;
-
 }
 
 #continue-btn {
@@ -60,7 +59,7 @@ h1, h2, h3, h4 button {
 #main-background-photo {
     background-image: url(/assets/images/pratham-gupta-unsplash_mdf.png);
 }
-
+/* Delete indiancuisine-banner */
 #indiancuisine-banner {
     background-image: url(/assets/images/debashis-rc-biswas-unsplash_indiancuisine.png);
 }
