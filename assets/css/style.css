@@ -47,7 +47,15 @@ h1, h2, h3, h4 button {
 #continue-btn {
     font-size: 28px;
     font-family: 'Abril Fatface', cursive;
+}
+.hidden {
+    display: none;
+}
 
+
+
+.close-button {
+  float: right;
 }
 
 .logo {
@@ -56,14 +64,14 @@ h1, h2, h3, h4 button {
     background-position: center ;      
 }
 
-#main-background-photo {
+/* #main-background-photo {
     background-image: url(/assets/images/pratham-gupta-unsplash_mdf.png);
 }
 /* Delete indiancuisine-banner */
 #indiancuisine-banner {
     background-image: url(/assets/images/debashis-rc-biswas-unsplash_indiancuisine.png);
-}
- 
+} */
+
 #country-page button {
     font-size: 1.7rem;
     font-family: 'Abril Fatface';
