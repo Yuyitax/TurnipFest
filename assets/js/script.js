@@ -28,6 +28,27 @@ var allergiesSection = $('#allergies'); // Main section ID
 // var veganCbox = $("#vegan");
 // var wheatCbox = $("#wheat-free");
 
+
+// This is the Youtube API Section:
+
+var YTAPIkey = "AIzaSyD_7qskIScu2G9J1dWitB2PLLZXyfvabIU";
+// AIzaSyD_7qskIScu2G9J1dWitB2PLLZXyfvabIU
+// 1: AIzaSyCREkvLlXKzAhqOjjsVunYzIyDuAXJJjWI
+var videoSearch = "dog"
+// var genre = $("#select-genre");
+var cuisine = "french";
+var userGenre;
+var genreRadios = document.getElementsByName("genre");
+var YTdata;
+var videos = []
+var currentVideoIndex = 0;
+var carousel = document.querySelector(".carouselbox");
+var nextBtn = carousel.querySelector(".next");
+var previousBtn = carousel.querySelector(".previous");
+var searchButton = document.querySelector('#search');
+var cuisine;
+var searchButton = document.querySelector('#search');
+var cuisine;
 // Variables for for Main Sections
 var allergiesBxs = document.querySelectorAll(
   '#allergies input[type="checkbox"]'
@@ -225,27 +246,6 @@ function useApiData(data) {
     test.appendChild(testContainer);
   }
 }
-
-// This is the Youtube API Section:
-
-var YTAPIkey = 'AIzaSyD_7qskIScu2G9J1dWitB2PLLZXyfvabIU';
-// AIzaSyD_7qskIScu2G9J1dWitB2PLLZXyfvabIU
-// 1: AIzaSyCREkvLlXKzAhqOjjsVunYzIyDuAXJJjWI
-var videoSearch = 'dog';
-// var genre = $("#select-genre");
-var cuisine = 'french';
-var userGenre;
-var genreRadios = document.getElementsByName('genre');
-var YTdata;
-var videos = [];
-var currentVideoIndex = 0;
-var carousel = document.querySelector('.carouselbox');
-var nextBtn = carousel.querySelector('.next');
-var previousBtn = carousel.querySelector('.previous');
-var searchButton = document.querySelector('#search');
-var cuisine;
-var searchButton = document.querySelector('#search');
-var cuisine;
 
 function selectCountry(country) {
   cuisine = country;
