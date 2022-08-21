@@ -13,7 +13,7 @@
       
     <title>turnipfest</title>
 <!-- the href has a temporary image. we need an icon for our tab -->
-    <link rel="shortcut icon" href="images/tabfox.png">
+    <link rel="shortcut icon" href="assets/images/newTurnip.png">
 </head>
 <body class="bg-cover bg-[url('/assets/images/pratham-gupta-unsplash_mdf.png')] bg-no-repeat w-full">
     <!-- <body class=""> -->
@@ -27,11 +27,11 @@
         <!-- Added this new div for the main purple box --> 
         <div id="purple-container" class="flex flex-col h-fit bg-[#17031D]/80 mx-auto pt-5 pb-5 rounded-2xl w-3/4 mb-[10%] bg-local visible"> 
         
-            <div id="food-diet" class="flex flex-wrap flex-col p-10 hidden">  
+            <div id="food-diet" class="flex flex-wrap flex-col p-10">  
                 <!-- search box area, this is the "q" element on the api fetch -->
                 <section id="search-bar-area">
                     <h2 class="text-[30px] leading-loose mb-5 text-white">Think of a food, or ingredient..</h2>
-                    <input type="text" id="myInput" class="form-control mb-10 w-[420px] h-[35px] rounded-md p-2 caret-pink-500" placeholder="Now type it here..Chicken, rice, pizza?">
+                    <input type="text" id="search" class="form-control mb-10 w-[420px] h-[35px] rounded-md p-2 caret-pink-500" placeholder="Now type it here..Chicken, rice, pizza?">
                     <!-- <button class="btn btn-outline-secondary text-white" type="button" id="search">Button</button> -->
                 </section>
 
@@ -89,8 +89,8 @@
             </div>
 
 
-            <!--Testing Cleaner Cuisines Area-->
-            <div id="country-page" class="p-10 hidden">
+            <!--Testing Cleaner Cuisines Area-->searchButton
+            <div id="country-page" class="p-10">
                 <h2 class="text-[32px] leading-loose mb-5 text-white text-center">Where would you like to take your taste buds?</h2>
                 <section class="mx-auto grid grid-cols-3 gap-10 w-fit">
                 
@@ -110,7 +110,7 @@
 
 
 
-<div id="country-page">
+<!-- <div id="country-page">
     <section id="countries">
         <button class="country-btn" id="asian" onclick="selectCountry('asian')">
             <div class="card">
@@ -165,7 +165,7 @@
 
        
 <!-- Goal: User can choose the different genre respective to country that they picked. -->
-        <div id="music-page" class="hidden p-10 visible">
+        <div id="music-page" class="p-10 visible">
             <div id="id01" class="w3-modal">
                 <div class="w3-modal-content">
                   <header class="w3-container w3-teal">
@@ -181,19 +181,19 @@
                 </div>
               </div>
 
-            <section class="genres hidden">
+            <section class="genres">
                 <h2 class="text-[32px] leading-loose mb-2 text-white text-center">What genre inspires you most?</h2>
                 <p class="text-[18px] mb-8 text-white text-center">You'll be inspired with music from your cuisine of choice.</p>
                     <form  class="flex flex-wrap mx-auto w-fit" id="select-genre">
-                        <input class="bg-[url('/assets/images/vinyl-yellow.png')] bg-contain h-[210px] w-[210px] text-white hover:animate-spin"  type="radio" id="traditional" value="traditional" name="genre">
-                            <label for="traditional">Traditional</label> <br>
-                        <input class="bg-[url('/assets/images/vinyl-purple.png')] bg-contain h-[210px] w-[210px] text-white hover:animate-spin" type="radio" id="pop" value="pop" name="genre">
-                            <label for="pop">Pop</label><br>
-                        <input class="bg-[url('/assets/images/vinyl-teal.png')] bg-contain h-[210px] w-[210px] text-white ml-5 mr-5 hover:animate-spin" type="radio" id="instrumental" value="instrumental" name="genre">
-                            <Label for="instrumental">Instrumental</Label> <br>
-                        <input class="bg-[url('/assets/images/vinyl-red.png')] bg-contain h-[210px] w-[210px] text-white ml-5 hover:animate-spin" type="radio" id="rock" value="rock" name="genre">
-                            <label for="rock">Rock</label> <br>
-                        <input type="submit" value="continue" id="continue-from-music">
+                        <button class="bg-[url('assets/images/vinyl-yellow.png')] bg-contain h-[210px] w-[210px] text-white hover:animate-spin"  type="radio" id="traditional" value="traditional" name="genre">Traditional</button>
+                            <!-- <label for="traditional">Traditional</label> <br> -->
+                        <button class="bg-[url('/assets/images/vinyl-purple.png')] bg-contain h-[210px] w-[210px] text-white hover:animate-spin" type="radio" id="pop" value="pop" name="genre">Pop</button>
+                            <!-- <label for="pop">Pop</label><br> -->
+                        <button class="bg-[url('/assets/images/vinyl-teal.png')] bg-contain h-[210px] w-[210px] text-white ml-5 mr-5 hover:animate-spin" type="radio" id="instrumental" value="instrumental" name="genre">Instrumental</button>
+                            <!-- <Label for="instrumental">Instrumental</Label> <br> -->
+                        <button class="bg-[url('/assets/images/vinyl-red.png')] bg-contain h-[210px] w-[210px] text-white ml-5 hover:animate-spin" type="radio" id="rock" value="rock" name="genre">Rock</button>
+                            <!-- <label for="rock">Rock</label> <br> -->
+                        <button type="submit" value="continue" id="continue-from-music"></button>
                     </form>
             </section> 
             <!-- <button id="continue-btn">Continue</button> -->
@@ -244,29 +244,6 @@
         </div>
 
 <!-- Goal: If the user decides to change their cuisine, then they can press the dropdown to change their cuisine, but they don't have to re-enter their special diets and allergies again. -->
-        <nav class="navbar hidden">
-            <div class="logo" class="hidden">Turnip Fest</div>
-            <div class="nav-links" class="hidden">
-              <ul class="menu" >
-
-                <li><a href="#home">Home</a></li>
-                <li class="typesOfCuisines">
-                    <a href="#cuisines">Cuisines</a>
-                    <!-- Dropdown Menu -->
-                    <ul class="dropdown" class="hidden">
-
-                        <li><a href="#chinese/">Chinese</a></li>
-                        <li><a href="#french">French</a></li>
-                        <li><a href="#italian">Italian</a></li>
-                        <li><a href=#japanese">Japanese</a></li>
-                        <li><a href="#american">American</a></li>
-                        <li><a href="#indian">Indian</a></li>
-                    </ul>
-                    </li>
-                <li><a href="#music">Music</a></li>
-                </ul>
-            </div>
-          </nav> --> -->
 
     </main>
 
