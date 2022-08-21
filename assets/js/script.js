@@ -108,19 +108,40 @@ async function sendApiRequest(inputValue) {
 function useApiData(data) {
   // 6 RESULTS
   for (var i = 0; i < 6; i++) {
+        // target div
+    // line 206 in html
+    var test = document.querySelector('#test1');
+
+    // make container
+    var testContainer = document.createElement('div');
+    testContainer.setAttribute(
+      'class',
+      'test-container flex flex-col justify-center items-center'
+    );
+    console.log(testContainer);
+
+    // make card
+    var testCard = document.createElement('div');
+    testCard.setAttribute(
+      'class',
+      'max-w-sm bg-white rounded-lg border border-gray-200 shadow-md'
+    );
+    console.log(testCard);
+
     // Image
     var image = document.createElement('img');
     var imageURL = data.hits[i].recipe.images.REGULAR.url;
     console.log(imageURL);
     image.setAttribute('src', imageURL);
     image.setAttribute('alt', 'food');
+    image.setAttribute('class', 'rounded-t-lg w-full');
     console.log(image);
 
     // Title
     var title = document.createElement('h1');
     title.textContent = data.hits[i].recipe.label;
+    title.setAttribute('class', 'mb-2 text-2xl font-bold text-center');
     console.log(title);
-    // document.querySelector('#test1').innerHTML = title;
 
     // Ingredients
     // var ingredientsList =
@@ -130,76 +151,78 @@ function useApiData(data) {
       var ingredientsItem = document.createElement('li');
       ingredientsItem.textContent = ingredientsData[x].text;
       ingredientsList.appendChild(ingredientsItem);
+      ingredientsList.setAttribute('class', 'mb-3 text-center');
       console.log(ingredientsList);
     }
 
     // Serving Size
     var serving = document.createElement('p');
     serving.textContent = data.hits[i].recipe.yield;
+    serving.setAttribute('class', 'mb-3 text-center');
     console.log(serving);
 
     // Total Calories
     var calories = document.createElement('p');
     calories.textContent =
       `Total Calories: ` + data.hits[i].recipe.calories.toFixed(2);
+      calories.setAttribute('class', 'mb-3 text-center');
     console.log(calories);
 
     // Total Fat
     var fat = document.createElement('p');
     fat.textContent =
      `Total Fat (g): ` + data.hits[i].recipe.digest[0].total.toFixed(2);
+     fat.setAttribute('class', 'mb-3 text-center');
     console.log(fat);
 
     // Total Carbs
     var carbs = document.createElement('p');
     carbs.textContent =
     `Total Carbohydrate (g): ` + data.hits[i].recipe.digest[1].total.toFixed(2);
+    carbs.setAttribute('class', 'mb-3 text-center');
     console.log(carbs);
 
     // Total Protein
     var protein = document.createElement('p');
     protein.textContent =
     `Protein (g): ` + data.hits[i].recipe.digest[2].total.toFixed(2);
+    protein.setAttribute('class', 'mb-3 text-center');
     console.log(protein);
 
     // Total Sodium
     var sodium = document.createElement('p');
     sodium.textContent =
     `Sodium (mg): ` + data.hits[i].recipe.digest[3].total.toFixed(2);
+    sodium.setAttribute('class', 'mb-3 text-center');
     console.log(sodium);
 
     // Link
     var link = document.createElement('a');
     var linkData = data.hits[i].recipe.shareAs;
     link.setAttribute('href', linkData);
+    link.setAttribute('target', '_blank');
+    link.setAttribute(
+      'class',
+      'inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-[#420948] rounded-lg hover:bg-black mb-3'
+    );
+    link.textContent = 'View More';
     console.log(link);
 
     // Append to tailwind card
-    // let test = document.querySelector('#test');
-    // test.after = image;
-
-    document.body.appendChild(image);
-    document.body.appendChild(title);
-    title.setAttribute('class', 'mb-2 text-2xl font-bold;');
-    document.body.appendChild(ingredientsList);
-    ingredientsList.setAttribute('class', 'mb-3;');
-    document.body.appendChild(serving);
-    serving.setAttribute('class', 'mb-3;');
-    document.body.appendChild(calories);
-    calories.setAttribute('class', 'mb-3;');
-    document.body.appendChild(fat);
-    fat.setAttribute('class', 'mb-3;');
-    document.body.appendChild(protein);
-    protein.setAttribute('class', 'mb-3;');
-    document.body.appendChild(carbs);
-    carbs.setAttribute('class', 'mb-3;');
-    document.body.appendChild(sodium);
-    sodium.setAttribute('class', 'mb-3;');
-    document.body.appendChild(link);
-    link.setAttribute(
-      'class',
-      'inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-[#420948] rounded-lg hover:bg-black;'
-    );
+    testCard.appendChild(image);
+    testCard.appendChild(title);
+    testCard.appendChild(ingredientsList);
+    testCard.appendChild(serving);
+    testCard.appendChild(calories);
+    testCard.appendChild(fat);
+    testCard.appendChild(protein);
+    testCard.appendChild(carbs);
+    testCard.appendChild(sodium);
+    testCard.appendChild(link);
+    // append card to the container
+    testContainer.appendChild(testCard);
+    // append container div to actual html div
+    test.appendChild(testContainer);
   }
 }
 
