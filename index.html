@@ -126,10 +126,10 @@
                     <h2 class="text-[32px] leading-loose mb-2 text-white text-center">What genre inspires you most?</h2>
                     <p class="text-[18px] mb-8 text-white text-center">You'll be inspired with music from your cuisine of choice.</p>
                         <form  class="flex flex-wrap mx-auto w-fit" id="select-genre">
-                            <button class="bg-[url('assets/images/vinyl-yellow.png')] bg-contain h-[210px] w-[210px] text-white hover:animate-spin" onclick="musicPageContinue('traditional')" type="radio" id="traditional" value="traditional" name="genre">Traditional</button>
-                            <button class="bg-[url('/assets/images/vinyl-purple.png')] bg-contain h-[210px] w-[210px] text-white hover:animate-spin" onclick="musicPageContinue('pop')" type="radio" id="pop" value="pop" name="genre">Pop</button>
-                            <button class="bg-[url('/assets/images/vinyl-teal.png')] bg-contain h-[210px] w-[210px] text-white ml-5 mr-5 hover:animate-spin" onclick="musicPageContinue('instrumental')" type="radio" id="instrumental" value="instrumental" name="genre">Instrumental</button>
-                            <button class="bg-[url('/assets/images/vinyl-red.png')] bg-contain h-[210px] w-[210px] text-white ml-5 hover:animate-spin" onclick="musicPageContinue('rock')" type="radio" id="rock" value="rock" name="genre">Rock</button>
+                            <button class="bg-[url('assets/images/vinyl-yellow.png')] bg-contain h-[210px] w-[210px] text-white hover:animate-spin" onclick="musicPageContinue('traditional'); displayPage('music-page', 'recipe-gallery-page')" type="button" id="traditional" value="traditional" name="genre">Traditional</button>
+                            <button class="bg-[url('/assets/images/vinyl-purple.png')] bg-contain h-[210px] w-[210px] text-white hover:animate-spin" onclick="musicPageContinue('pop'); displayPage('music-page', 'recipe-gallery-page')" type="button" id="pop" value="pop" name="genre">Pop</button>
+                            <button class="bg-[url('/assets/images/vinyl-teal.png')] bg-contain h-[210px] w-[210px] text-white ml-5 mr-5 hover:animate-spin" onclick="musicPageContinue('instrumental'); displayPage('music-page', 'recipe-gallery-page')" type="button" id="instrumental" value="instrumental" name="genre">Instrumental</button>
+                            <button class="bg-[url('/assets/images/vinyl-red.png')] bg-contain h-[210px] w-[210px] text-white ml-5 hover:animate-spin" onclick="musicPageContinue('rock'); displayPage('music-page', 'recipe-gallery-page')" type="button" id="rock" value="rock" name="genre">Rock</button>
                         </form>
 
                         
@@ -141,7 +141,7 @@
         <section class="hidden" id="recipe-gallery-page">
             <h2>Congrats with the information provided these are the meals that best fit your palate.</h2>
         <!-- JS will create the cards for the recipes since we don't know how many recipes will appear -->
-            <div class="food-gallery hidden">
+            <div class="food-gallery">
             <!-- this is an example of what the card will look like. Again, JS will create these cards-->
                 <div class="card hidden">
                     

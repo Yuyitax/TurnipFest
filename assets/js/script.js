@@ -207,30 +207,30 @@ function selectCountry(country) {
 // retrieving the user's input from genres and country's section
 
 function musicPageContinue(userMusic) {
-
+  // userMusic.preventDefault();
   userGenre = userMusic
     getFakeYTdata();
-    displayPage('music-page', 'recipe-gallery-page')
+    // displayPage('music-page', 'recipe-gallery-page')
 }
 
-function getGenre () {
+// function getGenre () {
 
-    for (var i = 0, length = genreRadios.length; i < length; i++) {
-        if (genreRadios[i].checked) {
+//     for (var i = 0, length = genreRadios.length; i < length; i++) {
+//         if (genreRadios[i].checked) {
 
-            userGenre = genreRadios[i].value;
+//             userGenre = genreRadios[i].value;
 
-            // if a radio isn't checked, then stop the for loop
-            break;
-        }
-    }
+//             // if a radio isn't checked, then stop the for loop
+//             break;
+//         }
+//     }
 
-    if (userGenre === undefined || userGenre === null) {
-        document.getElementById('id01').classList.remove("hidden");
-        return false;
-    }
-    return true;
-}
+//     if (userGenre === undefined || userGenre === null) {
+//         document.getElementById('id01').classList.remove("hidden");
+//         return false;
+//     }
+//     return true;
+// }
 
 
 function getFakeYTdata() {
@@ -399,30 +399,30 @@ function buildYTurl () {
     }
 }
 
-function carouselBtn(position) {
-  currentVideoIndex = currentVideoIndex + position;
-  if (currentVideoIndex < 0) {
-      currentVideoIndex = videos.length - 1;
-  } else if (currentVideoIndex > videos.length - 1) {
-      currentVideoIndex = 0;
-    }
+// function carouselBtn(position) {
+//   currentVideoIndex = currentVideoIndex + position;
+//   if (currentVideoIndex < 0) {
+//       currentVideoIndex = videos.length - 1;
+//   } else if (currentVideoIndex > videos.length - 1) {
+//       currentVideoIndex = 0;
+//     }
 
-    console.log(videos[currentVideoIndex])
-    document.getElementById("carouselVideos").src = videos[currentVideoIndex];
+//     console.log(videos[currentVideoIndex])
+//     document.getElementById("carouselVideos").src = videos[currentVideoIndex];
 
-}
+// }
 
-  nextBtn.addEventListener("click", function(event) {
-    event.stopPropagation();
+//   nextBtn.addEventListener("click", function(event) {
+//     event.stopPropagation();
 
-    carouselBtn(1);
-  });
+//     carouselBtn(1);
+//   });
 
-  previousBtn.addEventListener("click", function(event) {
-    event.stopPropagation();
+//   previousBtn.addEventListener("click", function(event) {
+//     event.stopPropagation();
 
-    carouselBtn(-1);
-  });
+//     carouselBtn(-1);
+//   });
 
 
   function displayPage (currentId, nextId) {
