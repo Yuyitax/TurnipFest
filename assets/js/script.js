@@ -107,7 +107,7 @@ var searchButton = document.querySelector('#continue-btn');
 
 searchButton.addEventListener('click', () => {
   console.log('button clicked');
-  var inputValue = document.getElementById('myInput').value;
+  var inputValue = document.getElementById('search').value;
   console.log(inputValue);
   sendApiRequest(inputValue);
 });
@@ -116,9 +116,15 @@ async function sendApiRequest(inputValue) {
   let APP_ID = '7bb5e52a';
   let API_KEY = '0c1e8ad80757342d9801acaefa2e9df0';
   console.log(inputValue);
-  let response = await fetch(
-    `https://api.edamam.com/api/recipes/v2?type=public&app_id=${APP_ID}&app_key=${API_KEY}&q=${inputValue}&health=${checkedAllergies}`
-  );
+  let finalURL = `https://api.edamam.com/api/recipes/v2?type=public&app_id=${APP_ID}&app_key=${API_KEY}&q=${inputValue}`;
+
+  if (checkedAllergies.length > 0) {  
+    let text2 = `&health=${checkedAllergies}`
+    finalURL =  `https://api.edamam.com/api/recipes/v2?type=public&app_id=${APP_ID}&app_key=${API_KEY}&q=${inputValue}`.concat(text2);
+  } 
+  console.log("JUMP")
+  console.log(typeof(checkedAllergies))
+  let response = await fetch(finalURL);
   console.log(response);
   let data = await response.json();
   console.log(data);
@@ -150,6 +156,8 @@ function useApiData(data) {
 
     // Image
     var image = document.createElement('img');
+    console.log("READ ME");
+    console.log(data);
     var imageURL = data.hits[i].recipe.images.REGULAR.url;
     console.log(imageURL);
     image.setAttribute('src', imageURL);
