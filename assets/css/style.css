@@ -84,6 +84,11 @@ h1, h2, h3, h4 button {
     text-shadow: 3px 3px 6px black;
 }
 
+#music-page button {
+    filter: brightness(150%);
+    text-shadow: 3px 3px 6px black;
+}
+
 @media screen and (max-width:1024px){
 .nav-link{
     width: 60%;
