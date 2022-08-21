@@ -14,7 +14,7 @@ var checkedCuisine = "";
 // Allergies checkboxes
 var allergiesSection = $("#allergies"); // Main section ID
 
-// We are currrently not using these variables: 
+// We are currrently not using these variables:
 // var alcoholFreeCbox = $("#alcohol-free");
 // var dairyCbox = $("#dairy-free");
 // var eggsCbox = $("#eggs");
@@ -46,10 +46,9 @@ var currentVideoIndex = 0;
 var carousel = document.querySelector(".carouselbox");
 var nextBtn = carousel.querySelector(".next");
 var previousBtn = carousel.querySelector(".previous");
-var searchButton = document.querySelector('#search');
+// var searchButton = document.querySelector('#search');
 var cuisine;
-var searchButton = document.querySelector('#search');
-var cuisine;
+
 // Variables for for Main Sections
 var allergiesBxs = document.querySelectorAll(
   '#allergies input[type="checkbox"]'
@@ -108,12 +107,12 @@ var recipes = {
 
 // Brians part of EDAMAME:
 
-searchButton.addEventListener('click', () => {
-  console.log('button clicked');
-  var inputValue = document.getElementById('myInput').value;
-  console.log(inputValue);
-  sendApiRequest(inputValue);
-});
+// searchButton.addEventListener('click', () => {
+//   console.log('button clicked');
+//   var inputValue = document.getElementById('myInput').value;
+//   console.log(inputValue);
+//   sendApiRequest(inputValue);
+// });
 
 async function sendApiRequest(inputValue) {
   let APP_ID = '7bb5e52a';
@@ -126,7 +125,7 @@ async function sendApiRequest(inputValue) {
   let data = await response.json();
   console.log(data);
   useApiData(data);
-} 
+}
 
 function useApiData(data) {
   // 4 RESULTS
@@ -201,35 +200,40 @@ function useApiData(data) {
 
 
 function selectCountry(country) {
-  cuisine = country
+  cuisine = country;
+
 }
 
 // retrieving the user's input from genres and country's section
-$("#continue-from-music").on("click", function(event){
-    event.preventDefault();
 
-    getGenre();
+function musicPageContinue(userMusic) {
+  // userMusic.preventDefault();
+  userGenre = userMusic
     getFakeYTdata();
-})
-
-function getGenre () {
-
-    for (var i = 0, length = genreRadios.length; i < length; i++) {
-        if (genreRadios[i].checked) {
-
-            userGenre = genreRadios[i].value;
-
-            // if a radio isn't checked, then stop the for loop
-            break;
-        }
-        }
-        if (userGenre === undefined || userGenre === null) {
-            document.getElementById('id01').style.display = 'block';
-        }
+    // displayPage('music-page', 'recipe-gallery-page')
 }
 
+// function getGenre () {
 
-var getFakeYTdata = function () {
+//     for (var i = 0, length = genreRadios.length; i < length; i++) {
+//         if (genreRadios[i].checked) {
+
+//             userGenre = genreRadios[i].value;
+
+//             // if a radio isn't checked, then stop the for loop
+//             break;
+//         }
+//     }
+
+//     if (userGenre === undefined || userGenre === null) {
+//         document.getElementById('id01').classList.remove("hidden");
+//         return false;
+//     }
+//     return true;
+// }
+
+
+function getFakeYTdata() {
     var fakeData = {
         "kind": "youtube#searchListResponse",
         "etag": "q3Zjdb5AXXe32RWx8Dx8s-h4c78",
@@ -349,7 +353,7 @@ var getFakeYTdata = function () {
     buildYTurl();
 }
 
-var getYTdata = function () {
+function getYTdata() {
     var queryUrlYT = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=7&q=" + cuisine + "+" + userGenre + "+" + "music&videoDuration=short&type=video&key=" + YTAPIkey;
     //console.log(queryUrlYT);
     fetch(queryUrlYT)
@@ -393,30 +397,41 @@ function buildYTurl () {
         console.log(YTdata.items[i].id.videoId);
         videos.push("https://www.youtube.com/embed/" + YTdata.items[i].id.videoId + "?autoplay=1")
     }
-    carouselBtn(0);
 }
 
-function carouselBtn(position) {
-    currentVideoIndex = currentVideoIndex + position;
-    if (currentVideoIndex < 0) {
-        currentVideoIndex = videos.length - 1;
-    } else if (currentVideoIndex > videos.length - 1) {
-        currentVideoIndex = 0;
-    }
+// function carouselBtn(position) {
+//   currentVideoIndex = currentVideoIndex + position;
+//   if (currentVideoIndex < 0) {
+//       currentVideoIndex = videos.length - 1;
+//   } else if (currentVideoIndex > videos.length - 1) {
+//       currentVideoIndex = 0;
+//     }
 
-    console.log(videos[currentVideoIndex])
-    document.getElementById("carouselVideos").src = videos[currentVideoIndex];
+//     console.log(videos[currentVideoIndex])
+//     document.getElementById("carouselVideos").src = videos[currentVideoIndex];
 
-}
+// }
 
-  nextBtn.addEventListener("click", function(event) {
-    event.stopPropagation();
+//   nextBtn.addEventListener("click", function(event) {
+//     event.stopPropagation();
 
-    carouselBtn(1);
-  });
+//     carouselBtn(1);
+//   });
 
-  previousBtn.addEventListener("click", function(event) {
-    event.stopPropagation();
+//   previousBtn.addEventListener("click", function(event) {
+//     event.stopPropagation();
 
-    carouselBtn(-1);
-  });
+//     carouselBtn(-1);
+//   });
+
+
+  function displayPage (currentId, nextId) {
+    console.log(currentId);
+    console.log(nextId);
+     var currentPage = document.getElementById(currentId);
+     var nextPage = document.getElementById(nextId);
+ 
+     
+     currentPage.classList.add("hidden");
+     nextPage.classList.remove("hidden");
+ };

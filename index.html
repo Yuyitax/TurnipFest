@@ -11,7 +11,7 @@
       crossorigin="anonymous"/>
       <script src="https://cdn.tailwindcss.com"></script>
       
-    <title>turnipfest</title>
+    <title>Turnip Fest</title>
 <!-- the href has a temporary image. we need an icon for our tab -->
     <link rel="shortcut icon" href="assets/images/newTurnip.png">
 </head>
@@ -24,19 +24,19 @@
 
     <main class="mt-[10%]">
 
-        <!-- Added this new div for the main purple box --> 
-        <div id="purple-container" class="flex flex-col h-fit bg-[#17031D]/80 mx-auto pt-5 pb-5 rounded-2xl w-3/4 mb-[10%] bg-local visible"> 
-        
-            <div id="food-diet" class="flex flex-wrap flex-col p-10">  
+        <!-- Added this new div for the main purple box -->
+        <div id="purple-container" class="flex flex-col h-fit bg-[#17031D]/80 mx-auto pt-5 pb-5 rounded-2xl w-3/4 mb-[10%] bg-local visible">
+
+            <div id="food-diet-page" class="flex flex-wrap flex-col p-10">
                 <!-- search box area, this is the "q" element on the api fetch -->
-                <section id="search-bar-area">
+                <section id="search-bar-area"> -->
                     <h2 class="text-[30px] leading-loose mb-5 text-white">Think of a food, or ingredient..</h2>
                     <input type="text" id="search" class="form-control mb-10 w-[420px] h-[35px] rounded-md p-2 caret-pink-500" placeholder="Now type it here..Chicken, rice, pizza?">
                     <!-- <button class="btn btn-outline-secondary text-white" type="button" id="search">Button</button> -->
                 </section>
 
                 <!-- This is the Allergies/Restrictions checkbox section -->
-                <h2 class="text-[30px] leading-loose mb-5 text-white">Allergies/Restrictions:</h2> 
+                <h2 class="text-[30px] leading-loose mb-5 text-white">Allergies/Restrictions:</h2>
                 <section id="allergies" class="columns-3 text-white leading-8 pb-6 text-[18px]">
                     <!-- These are called "Health Labels" in the api fetch, created the "health-labels" ID for all labels and added corresponding values to match API keywords -->
                     <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="alcohol-free" id="alcohol-free">
@@ -81,130 +81,67 @@
                         <input onclick="allergyclick(this.value, this.checked)" type ="checkbox" value="wheat-free" id="wheat-free"> <!--ID changed to wheat-free-->
                             <label id="health-labels" for="wheat-free">Wheat</label>
                 </section>
-                
+                        <div id="id01" class="flex items-center justify-center h-1.5 w3-modal hidden">
+                            <div class="w3-modal-content border-solid border-2 border-[#111827] bg-gray-50 p-4">
+                            <header class="w3-container w3-teal">
+                                <span onclick="document.getElementById('id01').classList.add('hidden')"
+                                class="h-1.5 close-button">&times;</span><br>
+                                <h2>Error:</h2><br>
+                            </header>
+                            <div class="w3-container">
+                                <p>Please enter an ingredient.</p>
+                            </div>
+                            </div>
+                        </div>
                 <!--This is the first continue btn-->
                 <div class="text-right mt-10 pr-5">
-                <button id="continue-btn" class="text-white pr-6 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-blue-500 duration-300 rounded-xl ">Continue <span class="fa fa-angle-right"></span></button>
-            </div>
+                    <button id="continue-btn" onclick="displayPage('food-diet-page', 'country-page')" class="text-white pr-6 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-blue-500 duration-300 rounded-xl ">Continue <span class="fa fa-angle-right"></span></button>
+                </div>
             </div>
 
 
-            <!--Testing Cleaner Cuisines Area-->searchButton
-            <div id="country-page" class="p-10">
+            <!--Testing Cleaner Cuisines Area-->
+            <div id="country-page" class="hidden p-10">
                 <h2 class="text-[32px] leading-loose mb-5 text-white text-center">Where would you like to take your taste buds?</h2>
                 <section class="mx-auto grid grid-cols-3 gap-10 w-fit">
-                
-                <button id="american" class="bg-[url('/assets/images/american-cuisine.png')] bg-contain h-[200px] w-[200px] text-white ml-5 mr-5" type="submit" value="american" onclick="selectCounty('american')">American</button>
 
-                <button id="asian" class="bg-[url('/assets/images/asian-cuisine.png')] bg-contain h-[200px] w-[200px] text-white ml-5 mr-5" type="submit" value="asian" onclick="selectCounty('asian')">Asian</button>
+                <button id="american" class="bg-[url('/assets/images/american-cuisine.png')] bg-contain h-[200px] w-[200px] text-white ml-5 mr-5" type="submit" value="american" onclick="selectCountry('american'); displayPage('country-page', 'music-page')">American</button>
 
-                <button id="caribbean" class="bg-[url('/assets/images/caribbean-cuisine.png')] bg-contain h-[200px] w-[200px] text-white ml-5 mr-5" type="submit" value="caribbean" onclick="selectCounty('caribbean')">Caribbean</button>
+                <button id="asian" class="bg-[url('/assets/images/asian-cuisine.png')] bg-contain h-[200px] w-[200px] text-white ml-5 mr-5" type="submit" value="asian" onclick="selectCountry('asian'); displayPage('country-page', 'music-page')">Asian</button>
 
-                <button id="french" class="bg-[url('/assets/images/french-cuisine.png')] bg-contain h-[200px] w-[200px] text-white ml-5 mr-5" type="submit" value="french" onclick="selectCounty('french')">French</button>
+                <button id="caribbean" class="bg-[url('/assets/images/caribbean-cuisine.png')] bg-contain h-[200px] w-[200px] text-white ml-5 mr-5" type="submit" value="caribbean" onclick="selectCountry('caribbean'); displayPage('country-page', 'music-page')">Caribbean</button>
 
-                <button id="indian" class="bg-[url('/assets/images/indian-cuisine.png')] bg-contain h-[200px] w-[200px] text-white ml-5 mr-5" type="submit" value="indian" onclick="selectCounty('indian')">Indian</button>
+                <button id="french" class="bg-[url('/assets/images/french-cuisine.png')] bg-contain h-[200px] w-[200px] text-white ml-5 mr-5" type="submit" value="french" onclick="selectCountry('french'); displayPage('country-page', 'music-page')">French</button>
 
-                <button id="italian" class="bg-[url('/assets/images/italian-cuisine.png')] bg-contain h-[200px] w-[200px] text-white ml-5 mr-5" type="submit" value="italian" onclick="selectCounty('italian')">Italian</button>
+                <button id="indian" class="bg-[url('/assets/images/indian-cuisine.png')] bg-contain h-[200px] w-[200px] text-white ml-5 mr-5" type="submit" value="indian" onclick="selectCountry('indian'); displayPage('country-page', 'music-page')">Indian</button>
+
+                <button id="italian" class="bg-[url('/assets/images/italian-cuisine.png')] bg-contain h-[200px] w-[200px] text-white ml-5 mr-5" type="submit" value="italian" onclick="selectCountry('italian'); displayPage('country-page', 'music-page')">Italian</button>
                 </section>
             </div>
+        
 
-
-
-<!-- <div id="country-page">
-    <section id="countries">
-        <button class="country-btn" id="asian" onclick="selectCountry('asian')">
-            <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Asian</h5>
-                </div>
-              </div>
-        </button>
-
-        <button class="country-btn" id="american" onclick="selectCountry('american')">
-            <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">American</h5>
-                </div>
-              </div>
-        </button>
-
-        <button class="country-btn" id="italian" onclick="selectCountry('italian')">
-            <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Italian</h5>
-                </div>
-              </div>
-        </button>
-
-        <button class="country-btn" id="caribbean" onclick="selectCountry('caribbean')">
-            <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Caribbean</h5>
-                </div>
-              </div>
-            </button>
-
-        <button class="country-btn" id="french" onclick="selectCountry('french')">
-            <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">French</h5>
-            </div>
-          </div>
-        </button>
-
-
-        <button class="country-btn" id="indian" onclick="selectCountry('indian')">
-            <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Indian</h5>
-                </div>
-              </div>
-        </button>
-    </section>
-</div> -->
-
-       
 <!-- Goal: User can choose the different genre respective to country that they picked. -->
-        <div id="music-page" class="p-10 visible">
-            <div id="id01" class="w3-modal">
-                <div class="w3-modal-content">
-                  <header class="w3-container w3-teal">
-                    <span onclick="document.getElementById('id01').style.display='none'"
-                    class="w3-button w3-display-topright">&times;</span>
-                    <h2>Modal Header</h2>
-                  </header>
-                  <div class="w3-container">
-                    <p>Some text..</p>
-                    <p>Some text..</p>
-                  </div>
+            <div class="hidden p-10" id="music-page">
+                <section class="genres">
+                    <h2 class="text-[32px] leading-loose mb-2 text-white text-center">What genre inspires you most?</h2>
+                    <p class="text-[18px] mb-8 text-white text-center">You'll be inspired with music from your cuisine of choice.</p>
+                        <form  class="flex flex-wrap mx-auto w-fit" id="select-genre">
+                            <button class="bg-[url('assets/images/vinyl-yellow.png')] bg-contain h-[210px] w-[210px] text-white hover:animate-spin" onclick="musicPageContinue('traditional'); displayPage('music-page', 'recipe-gallery-page')" type="button" id="traditional" value="traditional" name="genre">Traditional</button>
+                            <button class="bg-[url('/assets/images/vinyl-purple.png')] bg-contain h-[210px] w-[210px] text-white hover:animate-spin" onclick="musicPageContinue('pop'); displayPage('music-page', 'recipe-gallery-page')" type="button" id="pop" value="pop" name="genre">Pop</button>
+                            <button class="bg-[url('/assets/images/vinyl-teal.png')] bg-contain h-[210px] w-[210px] text-white ml-5 mr-5 hover:animate-spin" onclick="musicPageContinue('instrumental'); displayPage('music-page', 'recipe-gallery-page')" type="button" id="instrumental" value="instrumental" name="genre">Instrumental</button>
+                            <button class="bg-[url('/assets/images/vinyl-red.png')] bg-contain h-[210px] w-[210px] text-white ml-5 hover:animate-spin" onclick="musicPageContinue('rock'); displayPage('music-page', 'recipe-gallery-page')" type="button" id="rock" value="rock" name="genre">Rock</button>
+                        </form>
 
-                </div>
-              </div>
-
-            <section class="genres">
-                <h2 class="text-[32px] leading-loose mb-2 text-white text-center">What genre inspires you most?</h2>
-                <p class="text-[18px] mb-8 text-white text-center">You'll be inspired with music from your cuisine of choice.</p>
-                    <form  class="flex flex-wrap mx-auto w-fit" id="select-genre">
-                        <button class="bg-[url('assets/images/vinyl-yellow.png')] bg-contain h-[210px] w-[210px] text-white hover:animate-spin"  type="radio" id="traditional" value="traditional" name="genre">Traditional</button>
-                            <!-- <label for="traditional">Traditional</label> <br> -->
-                        <button class="bg-[url('/assets/images/vinyl-purple.png')] bg-contain h-[210px] w-[210px] text-white hover:animate-spin" type="radio" id="pop" value="pop" name="genre">Pop</button>
-                            <!-- <label for="pop">Pop</label><br> -->
-                        <button class="bg-[url('/assets/images/vinyl-teal.png')] bg-contain h-[210px] w-[210px] text-white ml-5 mr-5 hover:animate-spin" type="radio" id="instrumental" value="instrumental" name="genre">Instrumental</button>
-                            <!-- <Label for="instrumental">Instrumental</Label> <br> -->
-                        <button class="bg-[url('/assets/images/vinyl-red.png')] bg-contain h-[210px] w-[210px] text-white ml-5 hover:animate-spin" type="radio" id="rock" value="rock" name="genre">Rock</button>
-                            <!-- <label for="rock">Rock</label> <br> -->
-                        <button type="submit" value="continue" id="continue-from-music"></button>
-                    </form>
-            </section> 
-            <!-- <button id="continue-btn">Continue</button> -->
-       </div>
-
+                        
+                </section>
+            </div>
+        </div>
 <!--We are moving this section to the cuisine.html file. Should be deleted from here on final file-->
 <!-- Goal: User will be presented multiple recipe options -->
-        <section id="recipe-gallery-page" class="hidden">
-            <h2>Congrats with the information provided these are the meals that best fit your pallet.</h2>
+        <section class="hidden" id="recipe-gallery-page">
+            <h2>Congrats with the information provided these are the meals that best fit your palate.</h2>
         <!-- JS will create the cards for the recipes since we don't know how many recipes will appear -->
-            <div class="food-gallery hidden">
+            <div class="food-gallery">
             <!-- this is an example of what the card will look like. Again, JS will create these cards-->
                 <div class="card hidden">
                     
@@ -217,7 +154,7 @@
 
 <!--We are moving this section to the cuisine.html file. Should be deleted from here on final file-->
 <!--Goal: At this point, the music will play automatically, but the user can change the music by pressing next. YouTube API will retrieve the videos -->
-        <div id="recipe-page" class="hidden">
+        <div class="hidden" id="recipe-page" >
             <section id="recipe">
                 <div class="card">
                     <h4 id="name-recipe"></h4>
@@ -244,6 +181,27 @@
         </div>
 
 <!-- Goal: If the user decides to change their cuisine, then they can press the dropdown to change their cuisine, but they don't have to re-enter their special diets and allergies again. -->
+        <!-- <nav class="navbar">
+            <div class="logo">Turnip Fest</div>
+            <div class="nav-links">
+              <ul class="menu">
+                <li><a href="#home">Home</a></li>
+                <li class="typesOfCuisines">
+                    <a href="#cuisines">Cuisines</a>
+                    <!-- Dropdown Menu -->
+                    <!-- <ul class="dropdown">
+                        <li><a href="#chinese/">Chinese</a></li>
+                        <li><a href="#french">French</a></li>
+                        <li><a href="#italian">Italian</a></li>
+                        <li><a href=#japanese">Japanese</a></li>
+                        <li><a href="#american">American</a></li>
+                        <li><a href="#indian">Indian</a></li>
+                    </ul>
+                    </li>
+                <li><a href="#music">Music</a></li>
+                </ul>
+            </div>
+          </nav> -->
 
     </main>
 
