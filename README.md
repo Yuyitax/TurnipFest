@@ -26,6 +26,3 @@ A website made to help people explore new cuisense bassed on their own special d
 - Cristina Yunes 
 - Meissa Stans
 - Justin Yeldell
-
-
-
