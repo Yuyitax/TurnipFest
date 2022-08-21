@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+          crossorigin="anonymous"/>
+        <script src="https://cdn.tailwindcss.com"></script>
+          
+        <title>turnipfest - Cuisines </title>
+    <!-- the href has a temporary image. we need an icon for our tab -->
+        <link rel="shortcut icon" href="images/tabfox.png">
+    </head>
+
+    <body class="mx-auto"> 
+        <!--The URL inside the class should change to the corresponding cuisine photo. Photos will be named accordingly starting with "banner-countrynamecuisine.."-->
+        <header class="bg-[url('/assets/images/banner-Italiancuisine-josh-hild-unsplash.png')] bg-no-repeat w-100 h-[300px]">
+            <h1 id="cuisine-title-logo" class="drop-shadow-lg ml-4"><a href="index.html">turnipfest</a></h1>
+            <h1 id="cuisine-title"class="text-white drop-shadow-lg mt-6">Indian Cuisine</h1>
+        </header>
+
+        <!--This is the nav that will allow the user to go back to the previous 6-card- recipes section-->
+        <div id="cuisine-nav" class="bg-[#420948] p-4"> 
+            <button id="continue-btn" class="text-white pr-6 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-blue-500 duration-300 rounded-xl "><span class="fa fa-angle-left"></span><span class="fa fa-angle-left"></span> Back to Recipes</button>
+        </div>
+
+    <main class="p-10 w-full">
+
+        <!--This is an example of the 6 recipe cards that will be presented to the user. Photos are just placeholders for testing tailwind-->
+        <div id="recipes-gallery-main">
+            <h2>With the information provided these are the meals that best fit your pallet.</h2>
+
+            <div id="food-gallery" class="flex flex-wrap grid-cols-3 gap-10 w-full">
+
+                <!--The Spans are just for design placeholder. These will be deleted on last merge-->
+                <span id="card" class="w-72 h-60">
+                    <img src="./assets/images/TEST-Sushi-recipe.png" width="90%" height="auto">
+                </span>   
+
+                <span id="card" class="w-72">
+                    <img src="./assets/images/TEST-Sushi-recipe.png" width="90%" height="auto">
+                </span> 
+
+                <span id="card" class="w-72">
+                    <img src="./assets/images/TEST-Sushi-recipe.png" width="90%" height="auto">
+                </span>  
+
+                <span id="card" class="w-72">
+                    <img src="./assets/images/TEST-Sushi-recipe.png" width="90%" height="auto">
+                </span> 
+
+                <span id="card" class="w-72">
+                    <img src="./assets/images/TEST-Sushi-recipe.png" width="90%" height="auto">
+                </span>  
+                 
+                <span id="card" class="w-72">
+                    <img src="./assets/images/TEST-Sushi-recipe.png" width="90%" height="auto">
+                </span> 
+                
+            </div>
+        </div> 
+
+
+       <!--This is where the last recipe will show-->
+        <div id="final-recipe" class="mt-2">
+                <h2 class="text-[60px]">Sushi Rice</h2>
+                <section class="gap-8 columns-3">
+                <img src="./assets/images/TEST-Sushi-recipe.png">
+                <h3 class="text-[40px]">Ingredients</h3>
+                <ol>
+                    <li>First Ingredient</li>
+                    <li>Second Ingredient</li>
+                    <li>Third Ingredient</li>
+                </ol>
+                <h3 class="text-[40px]">Step-by-Step</h3>
+            </section>
+        </div>
+        
+        <!--Youtube video area-->
+        <div id="music-carousel" class="mx-auto">
+            <h3 id="music-instructions">Click to change the music</h3>
+            <div id="wrapper">
+                <div id="carouselbox">
+                    <button class="previous">◀ Previous</button>
+                    <button class="next">Next ▶</button>
+                    <iframe id="carouselVideos" allow="autoplay" alt="music" width="420" height="315"> 
+                    </iframe>
+                </div>
+            </div>    
+        </div>
+    </main>
+
+
+    
+</body>
+</html>

@@ -20,7 +20,7 @@
 <body class="bg-cover bg-[url('/assets/images/pratham-gupta-unsplash_mdf.png')] bg-no-repeat w-full">
     <!-- <body class=""> -->
     <header class="bg-[#420948]/80 p-4">
-        <h1 id="website-title" class="drop-shadow-lg ml-4"><a href="#Home" class="active">turnipfest</a></h1>
+        <h1 id="website-title" class="drop-shadow-lg ml-4"><a href="index.html">turnipfest</a></h1>
         <img src="" id="logo">
     </header>
 
@@ -83,18 +83,7 @@
                         <input onclick="allergyclick(this.value, this.checked)" type ="checkbox" value="wheat-free" id="wheat-free"> <!--ID changed to wheat-free-->
                             <label id="health-labels" for="wheat-free">Wheat</label>
                 </section>
-                        <div id="id01" class="flex items-center justify-center h-1.5 w3-modal hidden">
-                            <div class="w3-modal-content border-solid border-2 border-[#111827] bg-gray-50 p-4">
-                            <header class="w3-container w3-teal">
-                                <span onclick="document.getElementById('id01').classList.add('hidden')"
-                                class="h-1.5 close-button">&times;</span><br>
-                                <h2>Error:</h2><br>
-                            </header>
-                            <div class="w3-container">
-                                <p>Please enter an ingredient.</p>
-                            </div>
-                            </div>
-                        </div>
+                
                 <!--This is the first continue btn-->
                 <div class="text-right mt-10 pr-5">
                     <button id="continue-btn" onclick="displayPage('food-diet-page', 'country-page')" class="text-white pr-6 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-blue-500 duration-300 rounded-xl ">Continue <span class="fa fa-angle-right"></span></button>

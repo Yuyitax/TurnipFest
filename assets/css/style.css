@@ -29,6 +29,21 @@ h1, h2, h3, h4 button {
     font-family: 'Abril Fatface', cursive;
   }
 
+#cuisine-title-logo a {
+    font-size: 44px;
+    color: white;
+    font-family: 'Abril Fatface', cursive;
+    text-align: left;
+}
+
+#cuisine-title {
+    font-size: 65px;
+    color: white;
+    font-family: 'Abril Fatface', cursive;
+    text-align: center;
+    text-shadow: 3px 3px 8px #19001b;
+}
+
 #continue-btn {
     font-size: 28px;
     font-family: 'Abril Fatface', cursive;
@@ -52,7 +67,7 @@ h1, h2, h3, h4 button {
 /* #main-background-photo {
     background-image: url(/assets/images/pratham-gupta-unsplash_mdf.png);
 }
-
+/* Delete indiancuisine-banner */
 #indiancuisine-banner {
     background-image: url(/assets/images/debashis-rc-biswas-unsplash_indiancuisine.png);
 } */
@@ -71,10 +86,14 @@ h1, h2, h3, h4 button {
     box-shadow: 4px 4px 8px #7f148b;
 }
 
-
 #music-page button {
     font-size: 1.6rem;
     font-family: 'Abril Fatface';
+    text-shadow: 3px 3px 6px black;
+}
+
+#music-page button {
+    filter: brightness(150%);
     text-shadow: 3px 3px 6px black;
 }
 

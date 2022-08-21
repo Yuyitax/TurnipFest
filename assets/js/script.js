@@ -91,11 +91,11 @@ var recipes = {
     )
       .then((response) => response.json())
       .then((data) => {
-        this.displayRecipe(hits)
+        this.displayRecipe(hits);
       });
   },
 
-  displayRecipe: function (hits) {
+  displayRecipe: function(hits) {
     const dietLabels = hits.recipe.dietLabels;
     const { healthLabels } = hits.recipe.healthLabels;
     const cuisineType = hits.recipe.cuisineType;
@@ -118,10 +118,10 @@ async function sendApiRequest(inputValue) {
   console.log(inputValue);
   let finalURL = `https://api.edamam.com/api/recipes/v2?type=public&app_id=${APP_ID}&app_key=${API_KEY}&q=${inputValue}`;
 
-  if (checkedAllergies.length > 0) {  
+  if (checkedAllergies.length > 0) {
     let text2 = `&health=${checkedAllergies}`
     finalURL =  `https://api.edamam.com/api/recipes/v2?type=public&app_id=${APP_ID}&app_key=${API_KEY}&q=${inputValue}`.concat(text2);
-  } 
+  }
   console.log("JUMP")
   console.log(typeof(checkedAllergies))
   let response = await fetch(finalURL);
