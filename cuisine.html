@@ -14,41 +14,62 @@
     <!-- the href has a temporary image. we need an icon for our tab -->
         <link rel="shortcut icon" href="images/tabfox.png">
     </head>
-    <body> 
+
+    <body class=""> 
+        <!--The URL inside the class should change to the corresponding cuisine photo. Photos will be named accordingly starting with "banner-countrynamecuisine.."-->
         <header class="bg-[url('/assets/images/banner-indiancuisine-debashis-rc-biswas-unsplash.png')] bg-no-repeat w-100 h-[300px]">
             <h1 id="cuisine-title-logo" class="drop-shadow-lg ml-4"><a href="index.html">turnipfest</a></h1>
             <h1 id="cuisine-title"class="text-white drop-shadow-lg mt-6">Indian Cuisine</h1>
         </header>
 
-    <main>
+        <!--This is the nav that will allow the user to go back to the previous 6-card- recipes section-->
+        <div id="cuisine-nav" class="bg-[#420948] p-4"> 
+            <button id="continue-btn" class="text-white pr-6 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-blue-500 duration-300 rounded-xl "><span class="fa fa-angle-left"></span><span class="fa fa-angle-left"></span> Back to Recipes</button>
+ 
+        </div>
 
-        <div id="cuisines" class="">
-            <div id="cuisine-banner">
-    
-            </div>
+    <main class="p-10 w-full">
 
-            <!--This is where the 6 recipes be presented to the user-->
-        <div id="recipes-gallery" class="content columns-3 hidden">
-            <h2>Congrats with the information provided these are the meals that best fit your pallet.</h2>
-        <!-- JS will create the cards for the recipes since we don't know how many recipes will appear -->
-            <div class="food-gallery hidden">
-            <!-- this is an example of what the card will look like. Again, JS will create these cards-->
-                <div class="card hidden">
-                    
-                    <!-- <img src="food pic.png" alt="name-alt" > -->
+        <!--This is an example of the 6 recipe cards that will be presented to the user. Photos are just placeholders for testing tailwind-->
+        <div id="recipes-gallery-main">
+            <h2>With the information provided these are the meals that best fit your pallet.</h2>
 
-                    <h4 id="name-recipe"></h4>
-                </div>   
+            <div id="food-gallery" class="flex flex-wrap grid-cols-4 gap-10">
+                <span id="card" class="w-72 h-60">
+                    <img src="./assets/images/TEST-Sushi-recipe.png" width="90%" height="auto">
+                </span>   
+
+                <span id="card" class="w-72">
+                    <img src="./assets/images/TEST-Sushi-recipe.png" width="90%" height="auto">
+                </span> 
+
+                <span id="card" class="w-72">
+                    <img src="./assets/images/TEST-Sushi-recipe.png" width="90%" height="auto">
+                </span>  
+
+                <span id="card" class="w-72">
+                    <img src="./assets/images/TEST-Sushi-recipe.png" width="90%" height="auto">
+                </span> 
+
+                <span id="card" class="w-72">
+                    <img src="./assets/images/TEST-Sushi-recipe.png" width="90%" height="auto">
+                </span>  
+                 
+                <span id="card" class="w-72">
+                    <img src="./assets/images/TEST-Sushi-recipe.png" width="90%" height="auto">
+                </span> 
+                
             </div>
         </div> 
-            
 
-            <section id="cuisine-recipes">
+
+       <!--This is where the last recipe will show-->
+        <div id="final-recipe">
                 <h2>Sushi Rice</h2>
                 <section class="gap-8 columns-3">
-                <img src="./assets/images/TEST-Sushi-recipe.png" width="190%" height="auto">
+                <img src="./assets/images/TEST-Sushi-recipe.png" width="90%" height="auto">
             </section>
-            <section>
+            <div>
                 <!-- <iframe src="https://greatist.com/eat/sushi-rice" style="width: 60%; height: 600px;"></iframe> -->
             </section>
     </main>
