@@ -28,15 +28,6 @@ var ingredientsList = document.getElementById('ingredients');
 var instructions = document.getElementById('instructions');
 instructions.src = foodData.hits[userRecipe].recipe.url;
 
-var h2 = document.getElementById('h2');
-h2.textContent = foodData.hits[userRecipe].recipe.label;
-
-var h2 = document.getElementById('h2');
-h2.textContent = foodData.hits[userRecipe].recipe.label;
-
-var h2 = document.getElementById('h2');
-h2.textContent = foodData.hits[userRecipe].recipe.label;
-
 
 var acc = document.getElementsByClassName("accordion");
 var i;
