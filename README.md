@@ -36,10 +36,10 @@ This website is not only made to fit the user's special diet preferences, but al
 
 
 ## Visuals:
-![turnipfest first set of questions](../assets/images/turnipfest-first.png)
-![turnipfest cuisine preference question](../assets/images/turnipfest-cuisines.png)
-![turnipfest cuisine genre preference question](../assets/images/turnipfest-genres.png)
-![turnipfest final recipe view](../assets/images/cuisine-page-ss.jpg)
+![turnipfest first set of questions](./assets/images/turnipfest-first.png)
+![turnipfest cuisine preference question](./assets/images/turnipfest-cuisines.png)
+![turnipfest cuisine genre preference question](./assets/images/turnipfest-genres.png)
+![turnipfest final recipe view](./assets/images/cuisine-page-ss.jpg)
 
 
 ## Launch website
