@@ -40,11 +40,11 @@ var cuisine = "french";
 var userGenre;
 var genreRadios = document.getElementsByName("genre");
 var YTdata;
-var videos = []
-var currentVideoIndex = 0;
-var carousel = document.querySelector(".carouselbox");
-var nextBtn = carousel.querySelector(".next");
-var previousBtn = carousel.querySelector(".previous");
+// var videos = []
+// // var currentVideoIndex = 0;
+// var carousel = document.querySelector(".carouselbox");
+// // var nextBtn = carousel.querySelector(".next");
+// var previousBtn = carousel.querySelector(".previous");
 // var searchButton = document.querySelector('#search');
 var cuisine;
 
@@ -120,8 +120,12 @@ async function sendApiRequest(inputValue) {
 
   if (checkedAllergies.length > 0) {
     let text2 = `&health=${checkedAllergies}`
-    finalURL =  `https://api.edamam.com/api/recipes/v2?type=public&app_id=${APP_ID}&app_key=${API_KEY}&q=${inputValue}`.concat(text2);
+    
+    for (let i = 0; i < checkedAllergies.length; i++) {
+      finalURL += "&health=" + checkedAllergies[i];
+    }
   }
+
   // console.log("JUMP")
   // console.log(typeof(checkedAllergies))
   let response = await fetch(finalURL);
@@ -475,30 +479,30 @@ function buildYTurl () {
     }
 }
 
-function carouselBtn(position) {
-  currentVideoIndex = currentVideoIndex + position;
-  if (currentVideoIndex < 0) {
-      currentVideoIndex = videos.length - 1;
-  } else if (currentVideoIndex > videos.length - 1) {
-      currentVideoIndex = 0;
-    }
+// function carouselBtn(position) {
+//   currentVideoIndex = currentVideoIndex + position;
+//   if (currentVideoIndex < 0) {
+//       currentVideoIndex = videos.length - 1;
+//   } else if (currentVideoIndex > videos.length - 1) {
+//       currentVideoIndex = 0;
+//     }
 
-    console.log(videos[currentVideoIndex])
-    document.getElementById("carouselVideos").src = videos[currentVideoIndex];
+//     console.log(videos[currentVideoIndex])
+//     document.getElementById("carouselVideos").src = videos[currentVideoIndex];
 
-}
+// }
 
-  nextBtn.addEventListener("click", function(event) {
-    event.stopPropagation();
+//   nextBtn.addEventListener("click", function(event) {
+//     event.stopPropagation();
 
-    carouselBtn(1);
-  });
+//     carouselBtn(1);
+//   });
 
-  previousBtn.addEventListener("click", function(event) {
-    event.stopPropagation();
+//   previousBtn.addEventListener("click", function(event) {
+//     event.stopPropagation();
 
-    carouselBtn(-1);
-  });
+//     carouselBtn(-1);
+//   });
 
 
   function displayPage (currentId, nextId) {
