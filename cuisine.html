@@ -20,9 +20,9 @@
 
     <body class="mx-auto"> 
         <!--The URL inside the class should change to the corresponding cuisine photo. Photos will be named accordingly starting with "banner-countrynamecuisine.."-->
-        <header class="bg-[url('../assets/images/banner-caribbeancuisine-kristin-wilson-unsplash.png')] bg-no-repeat w-100 h-[350px] bg-fixed bg-center">
+        <header class="bg-[url('../assets/images/banner-caribbeancuisine2-carmina-muntean-unsplash.jpg')] bg-no-repeat w-100 h-[380px] bg-fixed bg-center">
             <h1 id="cuisine-title-logo" class="drop-shadow-lg ml-4"><a href="index.html">turnipfest</a></h1>
-            <h1 id="cuisine-title"class="text-white drop-shadow-lg mt-6">Indian Cuisine</h1>
+            <h1 id="cuisine-title"class="text-white drop-shadow-lg mt-20">Indian Cuisine</h1>
         </header>
 
         <!--This is the nav that will allow the user to go back to the previous 6-card- recipes section-->
@@ -34,29 +34,40 @@
 
        <!--This is where the last recipe will show-->
         <div id="final-recipe" class="mt-2">
-                <h2 class="text-[60px]" id="h2"></h2>
-                <section class="gap-8 columns-3">
-                <img id="food-image">
-                <h3 class="text-[40px]">Ingredients:</h3>
-                <ul id="ingredients">
-                    
-                </ul>
-                <button class="accordion ">Step-by-Step</button>
+            <div class="gap-8 columns-2">
+                <section>
+                    <h2 class="text-[48px]" id="h2">Name of Recipe</h2>
+                    <img id="food-image">
+
+                </section>
+                <section>
+                    <h3 class="text-[36px]">Ingredients:</h3>
+                    <ol id="ingredients">
+                        <li>First Ingredient</li>
+                        <li>Second Ingredient</li>
+                        <li>Third Ingredient</li>
+                    </ol>
+                </section>
+                </div>
+                <section>
+                    <button class="accordion mt-10 mb-10 text-[22px]">Step-by-Step Instuctions</button>
                     <div class="panel">
                         <iframe id="instructions"></iframe>
                     </div>
-            </section>
+
+                </section>
+            </div>
         </div>
         
         <!--Youtube video area-->
         <section>
-            <div id="music-carousel">
-                <h5 id="music-instructions">Click to change the music</h4>
+            <div id="music-carousel" class="w-fit">
+                <h3 id="music-instructions" class="text-[36px]">Click to change the music</h3>
                 <div class="wrapper">
                     <div class="carouselbox" >
 
-                        <button class="previous">◀ Previous</button>
-                        <button class="next">Next ▶</button>
+                        <button class="previous text-[18px]">◀ Previous</button>
+                        <button class="next text-[18px]">Next ▶</button>
                         <iframe id="carouselVideos" allow="autoplay" alt="music" width="420" height="315">
                         </iframe>
                     </div>
