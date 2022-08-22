@@ -68,9 +68,9 @@ var ingredientsList = document.getElementById('ingredients');
     link.setAttribute('target', '_blank');
     link.setAttribute(
     'class',
-    'inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-[#420948] rounded-lg hover:bg-black mb-3 mx-5'
+    'inline-flex items-center py-2 px-4 text-sm font-medium text-center text-white bg-[#7f148b] rounded-lg hover:bg-[#c521d7] mb-3 mx-5'
     );
-    link.textContent = 'View More';
+    link.textContent = 'View Here';
     instructions.appendChild(link);
     
 
