@@ -40,10 +40,10 @@ var cuisine = "french";
 var userGenre;
 var genreRadios = document.getElementsByName("genre");
 var YTdata;
-var videos = []
-// var currentVideoIndex = 0;
+// var videos = []
+// // var currentVideoIndex = 0;
 // var carousel = document.querySelector(".carouselbox");
-// var nextBtn = carousel.querySelector(".next");
+// // var nextBtn = carousel.querySelector(".next");
 // var previousBtn = carousel.querySelector(".previous");
 // var searchButton = document.querySelector('#search');
 var cuisine;
@@ -117,11 +117,15 @@ async function sendApiRequest(inputValue) {
   let API_KEY = '0c1e8ad80757342d9801acaefa2e9df0';
   // console.log(inputValue);
   let finalURL = `https://api.edamam.com/api/recipes/v2?type=public&app_id=${APP_ID}&app_key=${API_KEY}&q=${inputValue}`;
-console.log(checkedAllergies)
+
   if (checkedAllergies.length > 0) {
     let text2 = `&health=${checkedAllergies}`
-    finalURL =  `https://api.edamam.com/api/recipes/v2?type=public&app_id=${APP_ID}&app_key=${API_KEY}&q=${inputValue}`.concat(text2);
+
+    for (let i = 0; i < checkedAllergies.length; i++) {
+      finalURL += "&health=" + checkedAllergies[i];
+    }
   }
+
   // console.log("JUMP")
   // console.log(typeof(checkedAllergies))
   let response = await fetch(finalURL);
