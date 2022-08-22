@@ -2,8 +2,8 @@
 // Final link example for edamam: https://api.edamam.com/api/recipes/v2?type=public&q=chicken&app_id=7bb5e52a&app_key=0c1e8ad80757342d9801acaefa2e9df0&ingr=1-6&diet=balanced&health=egg-free&cuisineType=American&imageSize=REGULAR
 
 // Global Variables for EDAMAME API Fetch
-var appID = '7bb5e52a';
-var appApiKey = '0c1e8ad80757342d9801acaefa2e9df0';
+var appID = '4b84d97d';
+var appApiKey = '1c89a1a2ce12b0c5f0a0f657dc941c8b';
 var checkedAllergies = []; // Array for "&health=" area on URL
 var qValue = [];
 var checkedCuisine = '';
@@ -31,7 +31,7 @@ var allergiesSection = $('#allergies'); // Main section ID
 
 // This is the Youtube API Section:
 
-var YTAPIkey = "AIzaSyD_7qskIScu2G9J1dWitB2PLLZXyfvabIU";
+var YTAPIkey = "AIzaSyAE9G-nF9KIIBGo89zGvMGuPdxuYRcm3Lc";
 // AIzaSyD_7qskIScu2G9J1dWitB2PLLZXyfvabIU
 // 1: AIzaSyCREkvLlXKzAhqOjjsVunYzIyDuAXJJjWI
 var videoSearch = "dog"
@@ -114,8 +114,8 @@ searchButton.addEventListener('click', () => {
 });
 
 async function sendApiRequest() {
-  let APP_ID = '7bb5e52a';
-  let API_KEY = '0c1e8ad80757342d9801acaefa2e9df0';
+  let APP_ID = '4b84d97d';
+  let API_KEY = '1c89a1a2ce12b0c5f0a0f657dc941c8b';
   // console.log(inputValue);
   console.log(cuisine)
   let finalURL = `https://api.edamam.com/api/recipes/v2?type=public&app_id=${APP_ID}&app_key=${API_KEY}&q=${userSearchInput}&cuisineType=${cuisine}`;
@@ -466,13 +466,9 @@ function getYTdata() {
           //     }
           //   }
         });
-      } else {
-        alert('Error: ' + response.statusText);
-      }
+      } 
     })
-    .catch(function (error) {
-      alert('Unable to connect to the YouTube API ');
-    });
+    
 };
 
 // getFakeYTdata();
