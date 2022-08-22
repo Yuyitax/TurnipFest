@@ -177,7 +177,7 @@ function useApiData(data) {
     var testCard = document.createElement('div');
     testCard.setAttribute(
       'class',
-      'max-w-sm bg-white rounded-lg border border-gray-200 shadow-md'
+      'max-w-sm bg-white rounded-lg border border-gray-200 shadow-md w-72 h-[380px]'
     );
     // console.log(testCard);
 
