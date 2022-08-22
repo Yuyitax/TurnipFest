@@ -12,10 +12,9 @@ var banner = document.getElementById("banner");
 var title = document.getElementById("cuisine-title");
 
 if (cuisine === "american") {
-  banner.classList.add("bg-[url('./../assets/images/american-cuisine.png')]");
+  banner.classList.add("bg-[url('./../assets/images/banner-americancuisine2-bimo-luki-unsplash.jpg')]");
   title.innerHTML = "American Cuisine";
 
-  // banner.classList.add("bg-[url('../assets/images/banner-Italiancuisine-josh-hild-unsplash.png')]");
 } else if (cuisine === "italian") {
   banner.classList.add("bg-[url('./../assets/images/banner-Italiancuisine-josh-hild-unsplash.png')]");
   title.innerHTML = "Italian Cuisine";
