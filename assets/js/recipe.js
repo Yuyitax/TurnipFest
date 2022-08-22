@@ -7,6 +7,37 @@ var currentVideoIndex = 0;
 var carousel = document.querySelector(".carouselbox");
 var nextBtn = carousel.querySelector(".next");
 var previousBtn = carousel.querySelector(".previous");
+var cuisine = localStorage.getItem("cuisine");
+var banner = document.getElementById("banner");
+var title = document.getElementById("cuisine-title");
+
+if (cuisine === "american") {
+  banner.classList.add("bg-[url('./../assets/images/american-cuisine.png')]");
+  title.innerHTML = "American Cuisine";
+
+  // banner.classList.add("bg-[url('../assets/images/banner-Italiancuisine-josh-hild-unsplash.png')]");
+} else if (cuisine === "italian") {
+  banner.classList.add("bg-[url('./../assets/images/italian-cuisine.png')]");
+  title.innerHTML = "Italian Cuisine";
+
+} else if (cuisine === "asian") {
+  banner.classList.add("bg-[url('./../assets/images/asian-cuisine.png')]");
+  title.innerHTML = "Asian Cuisine";
+
+} else if (cuisine === "caribbean") {
+  banner.classList.add("bg-[url('./../assets/images/caribbean-cuisine.png')]");
+  title.innerHTML = "Caribbean Cuisine";
+
+} else if (cuisine === "french") {
+  banner.classList.add("bg-[url('./../assets/images/french-cuisine.png')]");
+  title.innerHTML = "French Cuisine";
+
+} else if (cuisine === "indian") {
+  banner.classList.add("bg-[url('./../assets/images/indian-cuisine.png')]");
+  title.innerHTML = "Indian Cuisine";
+}
+
+
 
 
 var h2 = document.getElementById('h2');
@@ -27,15 +58,6 @@ var ingredientsList = document.getElementById('ingredients');
 
 var instructions = document.getElementById('instructions');
 instructions.src = foodData.hits[userRecipe].recipe.url;
-
-var h2 = document.getElementById('h2');
-h2.textContent = foodData.hits[userRecipe].recipe.label;
-
-var h2 = document.getElementById('h2');
-h2.textContent = foodData.hits[userRecipe].recipe.label;
-
-var h2 = document.getElementById('h2');
-h2.textContent = foodData.hits[userRecipe].recipe.label;
 
 
 var acc = document.getElementsByClassName("accordion");

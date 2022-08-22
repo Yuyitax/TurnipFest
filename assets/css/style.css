@@ -63,7 +63,7 @@ h1, h2, h3, h4 button {
     width: 20px;
     background-position: center ;      
 }
-
+/* 
 .accordion {
   background-color: #eee;
   color: #444;
@@ -86,7 +86,7 @@ h1, h2, h3, h4 button {
   display: none;
   background-color: white;
   overflow: hidden;
-}
+} */
 
 /* #main-background-photo {
     background-image: url(/assets/images/pratham-gupta-unsplash_mdf.png);

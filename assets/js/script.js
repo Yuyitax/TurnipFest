@@ -36,7 +36,7 @@ var YTAPIkey = "AIzaSyD_7qskIScu2G9J1dWitB2PLLZXyfvabIU";
 // 1: AIzaSyCREkvLlXKzAhqOjjsVunYzIyDuAXJJjWI
 var videoSearch = "dog"
 // var genre = $("#select-genre");
-var cuisine = "french";
+// var cuisine = "french";
 var userGenre;
 var genreRadios = document.getElementsByName("genre");
 var YTdata;
@@ -120,7 +120,7 @@ async function sendApiRequest(inputValue) {
 
   if (checkedAllergies.length > 0) {
     let text2 = `&health=${checkedAllergies}`
-    
+
     for (let i = 0; i < checkedAllergies.length; i++) {
       finalURL += "&health=" + checkedAllergies[i];
     }
@@ -281,6 +281,8 @@ function useApiData(data) {
 
 function selectCountry(country) {
   cuisine = country;
+  localStorage.setItem("cuisine", country);
+  
   // console.log(typeof(cuisine));
 }
 
