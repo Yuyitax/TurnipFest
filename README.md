@@ -4,10 +4,6 @@ Welcome to turnipfest, a website specially made for those adventurers that love 
 This website is not only made to fit the user's special diet preferences, but also to transport and inspire them with international music and visuals while learning how to cook new recipes.
 
 
-<!-- ## Description:
- Help the user explore new cultures by producing recipes to different cuisines and music from different cultures based on the users personal diet and music preference. -->
-
-
 ## User story:
 - AS a user I want to have a wide range of options to meet my dietary restrictions and cravings.
 - AS a user I want to transport my taste buds internationally with various international cuisine options.
@@ -35,13 +31,13 @@ This website is not only made to fit the user's special diet preferences, but al
 ## Contributors:
 - Brian Choi 
 - Cristina Yunes 
-- Melissa Stans
+- Melissa Stan
 - Justin Yeldell
 
 ## Visuals:
-![turnipfest first set of questions](./assets/images/turnipfest-first.png)
-![turnipfest cuisine preference question](./assets/images/turnipfest-cuisines.png)
-![turnipfest cuisine genre preference question](./assets/images/turnipfest-genres.png)
+![turnipfest first set of questions](../assets/images/turnipfest-first.png)
+![turnipfest cuisine preference question](../assets/images/turnipfest-cuisines.png)
+![turnipfest cuisine genre preference question](../assets/images/turnipfest-genres.png)
 
 ## Launch website
 

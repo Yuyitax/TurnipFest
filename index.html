@@ -20,9 +20,7 @@
 <body class="bg-cover bg-[url('/assets/images/pratham-gupta-unsplash_mdf.png')] bg-no-repeat w-full">
     <!-- <body class=""> -->
     <header class="bg-[#420948]/80 p-4">
-
-        <h1 id="website-title" class="drop-shadow-lg ml-5"><a href="#Home" class="active">turnipfest</a></h1>
-
+        <h1 id="website-title" class="drop-shadow-lg ml-4"><a href="index.html">turnipfest</a></h1>
         <img src="" id="logo">
     </header>
 
@@ -31,17 +29,17 @@
         <!-- Added this new div for the main purple box -->
         <div id="purple-container" class="flex flex-col h-fit bg-[#17031D]/80 mx-auto pt-5 pb-5 rounded-2xl w-3/4 mb-[10%] bg-local visible">
 
-            <div id="food-diet-page" class="flex flex-wrap flex-col p-10">
+            <div id="food-diet-page" class="flex flex-wrap flex-col p-10 mx-auto">
                 <!-- search box area, this is the "q" element on the api fetch -->
                 <section id="search-bar-area">
-                    <h2 class="text-[30px] leading-loose mb-5 text-white">Think of a food, or ingredient..</h2>
-                    <input type="text" id="search" class="form-control mb-10 w-[420px] h-[35px] rounded-md p-2 caret-pink-500" placeholder="Now type it here..Chicken, rice, pizza?">
+                    <h2 class="text-[32px] leading-loose mb-5 text-white">Think of a food, or ingredient..</h2>
+                    <input type="text" id="search" class="form-control mb-10 w-[620px] h-[35px] rounded-md p-2 caret-pink-500" placeholder="Now type it here..Chicken, rice, pizza?">
                     <!-- <button class="btn btn-outline-secondary text-white" type="button" id="search">Button</button> -->
                 </section>
 
                 <!-- This is the Allergies/Restrictions checkbox section -->
-                <h2 class="text-[30px] leading-loose mb-5 text-white">Allergies/Restrictions:</h2>
-                <section id="allergies" class="columns-3 text-white leading-8 pb-6 text-[18px]">
+                <h2 class="text-[32px] leading-loose mb-5 text-white">Allergies/Restrictions:</h2>
+                <section id="allergies" class="columns-3 text-white leading-8 pb-6 text-[20px]">
                     <!-- These are called "Health Labels" in the api fetch, created the "health-labels" ID for all labels and added corresponding values to match API keywords -->
                     <input onclick="allergyclick(this.value, this.checked)" type="checkbox" value="alcohol-free" id="alcohol-free">
                         <label id="health-labels" for="alcohol-free">Alcohol-Free</label>
@@ -96,7 +94,7 @@
             <!--Testing Cleaner Cuisines Area-->
             <div id="country-page" class=" p-10 hidden">
                 <h2 class="text-[32px] leading-loose mb-5 text-white text-center">Where would you like to take your taste buds?</h2>
-                <section class="mx-auto grid grid-cols-3 gap-10 w-fit">
+                <section class="mx-auto flex flex-wrap columns-3 mx-auto w-fit gap-10 w-fit">
 
                 <button id="american" class="bg-[url('./assets/images/american-cuisine.png')] bg-contain h-[200px] w-[200px] text-white ml-5 mr-5" type="submit" value="american" onclick="selectCountry('american'); displayPage('country-page', 'music-page')">American</button>
 
@@ -118,22 +116,22 @@
                 <section class="genres">
                     <h2 class="text-[32px] leading-loose mb-2 text-white text-center">What genre inspires you most?</h2>
                     <p class="text-[18px] mb-8 text-white text-center">You'll be inspired with music from your cuisine of choice.</p>
-                        <form  class="flex flex-wrap mx-auto w-fit gap-8" id="select-genre">
+                        <form  class="flex flex-wrap mx-auto w-fit gap-6" id="select-genre">
                             <button class="bg-[url('./assets/images/black-vinyl-record.png')] bg-contain h-[210px] w-[210px] text-white hover:animate-spin" onclick="musicPageContinue('traditional'); displayPage('music-page', 'recipe-gallery-page')" type="button" id="traditional" value="traditional" name="genre">Traditional</button>
                             <button class="bg-[url('./assets/images/black-vinyl-record.png')] bg-contain h-[210px] w-[210px] text-white hover:animate-spin" onclick="musicPageContinue('pop'); displayPage('music-page', 'recipe-gallery-page')" type="button" id="pop" value="pop" name="genre">Pop</button>
                             <button class="bg-[url('./assets/images/black-vinyl-record.png')] bg-contain h-[210px] w-[210px] text-white hover:animate-spin" onclick="musicPageContinue('instrumental'); displayPage('music-page', 'recipe-gallery-page')" type="button" id="instrumental" value="instrumental" name="genre">Instrumental</button>
-                            <button class="bg-[url('./assets/images/black-vinyl-record.png')] bg-contain h-[210px] w-[210px] text-white hover:animate-spin" onclick="musicPageContinue('rock'); displayPage('music-page', 'recipe-gallery-page')" type="button" id="rock" value="rock" name="genre">Rock</button>
+                            <button class="bg-[url('./assets/images/black-vinyl-record.png')] bg-contain h-[210px] w-[210px] text-white  hover:animate-spin" onclick="musicPageContinue('rock'); displayPage('music-page', 'recipe-gallery-page')" type="button" id="rock" value="rock" name="genre">Rock</button>
                         </form>
 
 
                 </section>
             </div>
             <!-- Goal: User will be presented multiple recipe options -->
-            <section id="recipe-gallery-page" class="hidden">
+            <section id="recipe-gallery-page" class="hidden text-white text-center text-[26px] p-6">
                 <h2>Congrats with the information provided these are the meals that best fit your pallet.</h2>
 
                 <!-- Cards will show below in this empty div -->
-                <div id="test1" class="food-gallery grid grid-cols-3 gap-4 ">
+                <div id="test1" class="food-gallery grid grid-cols-3 gap-4 p-6">
 
                 </div>
             </section>

@@ -5,6 +5,7 @@
     padding: 0;
     font-family: sans-serif;
 }
+
 body {
     margin: 0;
     padding: 0;
@@ -27,6 +28,7 @@ h1, h2, h3, h4 button {
     font-size: 60px;
     color: white;
     font-family: 'Abril Fatface', cursive;
+    text-shadow: 4px 4px 6px black;
   }
 
 #cuisine-title-logo a {
@@ -34,6 +36,7 @@ h1, h2, h3, h4 button {
     color: white;
     font-family: 'Abril Fatface', cursive;
     text-align: left;
+    text-shadow: 4px 4px 6px black;
 }
 
 #cuisine-title {
@@ -52,8 +55,6 @@ h1, h2, h3, h4 button {
     display: none;
 }
 
-
-
 .close-button {
   float: right;
 }
@@ -63,8 +64,8 @@ h1, h2, h3, h4 button {
     width: 20px;
     background-position: center ;      
 }
-/* 
-.accordion {
+
+/* .accordion {
   background-color: #eee;
   color: #444;
   cursor: pointer;
@@ -97,28 +98,36 @@ h1, h2, h3, h4 button {
 } */
 
 #country-page button {
-    font-size: 1.7rem;
-    font-family: 'Abril Fatface';
+    font-size: 1.6rem;
+    font-family: 'Abril Fatface', cursive;
     text-shadow: 4px 4px 6px black;
     background-blend-mode: darken, luminosity;
     border-radius: 50%;
     border: 2px solid white;
+    border-radius: 100px;
 }
+
 #country-page button:hover {
     filter: brightness(150%);
     text-shadow: 4px 4px 8px black;
     box-shadow: 4px 4px 8px #7f148b;
+    border-radius: 100px;
 }
 
 #music-page button {
+    border-radius: 100px;
     font-size: 1.6rem;
-    font-family: 'Abril Fatface';
+    font-family: 'Abril Fatface', cursive;
     text-shadow: 3px 3px 6px black;
+    box-shadow: 2px 2px 2px white;
 }
 
-#music-page button {
-    filter: brightness(150%);
-    text-shadow: 3px 3px 6px black;
+#music-page button:hover {
+    font-size: 1.8rem;
+    border-radius: 100px;
+    filter: brightness(140%);
+    box-shadow: 4px 4px 8px white;
+    text-shadow: 3px 3px 8px #591075;
 }
 
 @media screen and (max-width:1024px){
