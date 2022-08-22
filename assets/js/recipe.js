@@ -62,7 +62,7 @@ var ingredientsList = document.getElementById('ingredients');
 // Link
 
     var link = document.createElement('a');
-    var linkData = foodData.hits[userRecipe].recipe.shareAs;
+    var linkData = foodData.hits[userRecipe].recipe.url;
     var instructions = document.getElementById("instructions");
     link.setAttribute('href', linkData);
     link.setAttribute('target', '_blank');
