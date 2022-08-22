@@ -20,7 +20,9 @@
 <body class="bg-cover bg-[url('/assets/images/pratham-gupta-unsplash_mdf.png')] bg-no-repeat w-full">
     <!-- <body class=""> -->
     <header class="bg-[#420948]/80 p-4">
+
         <h1 id="website-title" class="drop-shadow-lg ml-5"><a href="#Home" class="active">turnipfest</a></h1>
+
         <img src="" id="logo">
     </header>
 
@@ -83,18 +85,7 @@
                         <input onclick="allergyclick(this.value, this.checked)" type ="checkbox" value="wheat-free" id="wheat-free"> <!--ID changed to wheat-free-->
                             <label id="health-labels" for="wheat-free">Wheat</label>
                 </section>
-                        <div id="id01" class="flex items-center justify-center h-1.5 w3-modal hidden">
-                            <div class="w3-modal-content border-solid border-2 border-[#111827] bg-gray-50 p-4">
-                            <header class="w3-container w3-teal">
-                                <span onclick="document.getElementById('id01').classList.add('hidden')"
-                                class="h-1.5 close-button">&times;</span><br>
-                                <h2>Error:</h2><br>
-                            </header>
-                            <div class="w3-container">
-                                <p>Please enter an ingredient.</p>
-                            </div>
-                            </div>
-                        </div>
+                
                 <!--This is the first continue btn-->
                 <div class="text-right mt-10 pr-5">
                     <button id="continue-btn" onclick="displayPage('food-diet-page', 'country-page')" class="text-white pr-6 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-blue-500 duration-300 rounded-xl ">Continue <span class="fa fa-angle-right"></span></button>
@@ -137,45 +128,17 @@
 
                 </section>
             </div>
-        </div>
-<!--We are moving this section to the cuisine.html file. Should be deleted from here on final file-->
-<!-- Goal: User will be presented multiple recipe options -->
-<section id="recipe-gallery-page" class="hidden">
-    <h2>Congrats with the information provided these are the meals that best fit your pallet.</h2>
+            <!-- Goal: User will be presented multiple recipe options -->
+            <section id="recipe-gallery-page" class="hidden">
+                <h2>Congrats with the information provided these are the meals that best fit your pallet.</h2>
 
-    <!-- Cards will show below in this empty div -->
-    <div id="test1" class="food-gallery grid grid-cols-3 gap-4 ">
+                <!-- Cards will show below in this empty div -->
+                <div id="test1" class="food-gallery grid grid-cols-3 gap-4 ">
 
-    </div>
-</section>
-
-<!--We are moving this section to the cuisine.html file. Should be deleted from here on final file-->
-<!--Goal: At this point, the music will play automatically, but the user can change the music by pressing next. YouTube API will retrieve the videos -->
-        <div class="hidden" id="recipe-page" >
-            <section id="recipe">
-                <div class="card">
-                    <h4 id="name-recipe"></h4>
-
-                    <p id="ingredients">Ingredients:</p>
-                    <p id="recipe-instructions">Instructions:</p>
-                </div>   
-            </section>
-
-            <section>
-                <div id="music-carousel">
-                    <h5 id="music-instructions">Click to change the music</h4>
-                    <div class="wrapper">
-                    <div class="carouselbox" >
-
-                        <button class="previous">◀ Previous</button>
-                        <button class="next">Next ▶</button>
-                        <iframe id="carouselVideos" allow="autoplay" alt="music" width="420" height="315">
-                        </iframe>
-                    </div>
-                    </div>
                 </div>
-            </section> 
+            </section>
         </div>
+
 
 <!-- Goal: If the user decides to change their cuisine, then they can press the dropdown to change their cuisine, but they don't have to re-enter their special diets and allergies again. -->
 
