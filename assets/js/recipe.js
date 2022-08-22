@@ -17,23 +17,23 @@ if (cuisine === "american") {
 
   // banner.classList.add("bg-[url('../assets/images/banner-Italiancuisine-josh-hild-unsplash.png')]");
 } else if (cuisine === "italian") {
-  banner.classList.add("bg-[url('./../assets/images/italian-cuisine.png')]");
+  banner.classList.add("bg-[url('./../assets/images/banner-Italiancuisine-josh-hild-unsplash.png')]");
   title.innerHTML = "Italian Cuisine";
 
 } else if (cuisine === "asian") {
-  banner.classList.add("bg-[url('./../assets/images/asian-cuisine.png')]");
+  banner.classList.add("bg-[url('./../assets/images/banner-asiancuisine-vernon-raineil-cenzon-unsplash.jpg')]");
   title.innerHTML = "Asian Cuisine";
 
 } else if (cuisine === "caribbean") {
-  banner.classList.add("bg-[url('./../assets/images/caribbean-cuisine.png')]");
+  banner.classList.add("bg-[url('./../assets/images/banner-caribbeancuisine2-carmina-muntean-unsplash.jpg')]");
   title.innerHTML = "Caribbean Cuisine";
 
 } else if (cuisine === "french") {
-  banner.classList.add("bg-[url('./../assets/images/french-cuisine.png')]");
+  banner.classList.add("bg-[url('./../assets/images/banner-frenchcuisine-cafe-gourmande-258201_1920.jpg')]");
   title.innerHTML = "French Cuisine";
 
 } else if (cuisine === "indian") {
-  banner.classList.add("bg-[url('./../assets/images/indian-cuisine.png')]");
+  banner.classList.add("bg-[url('./../assets/images/banner-indiancuisine-debashis-rc-biswas-unsplash.png')]");
   title.innerHTML = "Indian Cuisine";
 }
 
@@ -45,6 +45,7 @@ h2.textContent = foodData.hits[userRecipe].recipe.label;
 
 var foodImage = document.getElementById('food-image');
 foodImage.src = foodData.hits[userRecipe].recipe.images.REGULAR.url;
+foodImage.setAttribute('class', 'w-[500px]');
 
 var ingredientsList = document.getElementById('ingredients');
     var ingredientsData = foodData.hits[userRecipe].recipe.ingredients;
@@ -52,32 +53,29 @@ var ingredientsList = document.getElementById('ingredients');
     var ingredientsItem = document.createElement('li');
     ingredientsItem.textContent = ingredientsData[x].text;
     ingredientsList.appendChild(ingredientsItem);
-    ingredientsList.setAttribute('class', 'mb-3 text-center');
+    ingredientsList.setAttribute('class', 'mb-3');
     // console.log(ingredientsList);
     }
 
-var instructions = document.getElementById('instructions');
-instructions.src = foodData.hits[userRecipe].recipe.url;
+  var instructions = document.getElementById('instructions');
+  instructions.src = foodData.hits[userRecipe].recipe.url;
+
+// Link
+
+    var link = document.createElement('a');
+    var linkData = foodData.hits[userRecipe].recipe.shareAs;
+    var instructions = document.getElementById("instructions");
+    link.setAttribute('href', linkData);
+    link.setAttribute('target', '_blank');
+    link.setAttribute(
+    'class',
+    'inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-[#420948] rounded-lg hover:bg-black mb-3 mx-5'
+    );
+    link.textContent = 'View More';
+    instructions.appendChild(link);
+    
 
 
-var acc = document.getElementsByClassName("accordion");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    /* Toggle between adding and removing the "active" class,
-    to highlight the button that controls the panel */
-    this.classList.toggle("active");
-
-    /* Toggle between hiding and showing the active panel */
-    var panel = this.nextElementSibling;
-    if (panel.style.display === "block") {
-      panel.style.display = "none";
-    } else {
-      panel.style.display = "block";
-    }
-  });
-}
 buildYTurl ();
 carouselBtn(0);
 function buildYTurl () {
