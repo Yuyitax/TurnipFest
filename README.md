@@ -31,7 +31,7 @@ This website is not only made to fit the user's special diet preferences, but al
 ## Contributors:
 - Brian Choi 
 - Cristina Yunes 
-- Melissa Stans
+- Melissa Stan
 - Justin Yeldell
 
 ## Visuals:
