@@ -193,7 +193,7 @@ function useApiData(data) {
     // Title
     var title = document.createElement('h1');
     title.textContent = data.hits[i].recipe.label;
-    title.setAttribute('class', 'mb-2 text-2xl font-bold text-center');
+    title.setAttribute('class', 'text-black mb-2 text-2xl text-center');
     // console.log(title);
 
     // Ingredients
