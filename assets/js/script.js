@@ -47,6 +47,7 @@ var YTdata;
 // var previousBtn = carousel.querySelector(".previous");
 // var searchButton = document.querySelector('#search');
 var cuisine;
+var userSearchInput;
 
 // Variables for for Main Sections
 var allergiesBxs = document.querySelectorAll(
@@ -107,16 +108,17 @@ var searchButton = document.querySelector('#continue-btn');
 
 searchButton.addEventListener('click', () => {
   // console.log('button clicked');
-  var inputValue = document.getElementById('search').value;
+  userSearchInput = document.getElementById('search').value;
   // console.log(inputValue);
-  sendApiRequest(inputValue);
+  // sendApiRequest(userSearchInput);
 });
 
-async function sendApiRequest(inputValue) {
+async function sendApiRequest() {
   let APP_ID = '7bb5e52a';
   let API_KEY = '0c1e8ad80757342d9801acaefa2e9df0';
   // console.log(inputValue);
-  let finalURL = `https://api.edamam.com/api/recipes/v2?type=public&app_id=${APP_ID}&app_key=${API_KEY}&q=${inputValue}`;
+  console.log(cuisine)
+  let finalURL = `https://api.edamam.com/api/recipes/v2?type=public&app_id=${APP_ID}&app_key=${API_KEY}&q=${userSearchInput}&cuisineType=${cuisine}`;
 
   if (checkedAllergies.length > 0) {
     let text2 = `&health=${checkedAllergies}`
@@ -193,73 +195,73 @@ function useApiData(data) {
     // Title
     var title = document.createElement('h1');
     title.textContent = data.hits[i].recipe.label;
-    title.setAttribute('class', 'mb-2 text-2xl font-bold text-center');
+    title.setAttribute('class', 'text-black mb-2 text-2xl text-center');
     // console.log(title);
 
-    // Ingredients
-    // var ingredientsList =
-    var ingredientsList = document.createElement('ul');
-    var ingredientsData = data.hits[i].recipe.ingredients;
-    for (var x = 0; x < ingredientsData.length; x++) {
-      var ingredientsItem = document.createElement('li');
-      ingredientsItem.textContent = ingredientsData[x].text;
-      ingredientsList.appendChild(ingredientsItem);
-      ingredientsList.setAttribute('class', 'mb-3 text-center');
-      // console.log(ingredientsList);
-    }
+    // // Ingredients
+    // // var ingredientsList =
+    // var ingredientsList = document.createElement('ul');
+    // var ingredientsData = data.hits[i].recipe.ingredients;
+    // for (var x = 0; x < ingredientsData.length; x++) {
+    //   var ingredientsItem = document.createElement('li');
+    //   ingredientsItem.textContent = ingredientsData[x].text;
+    //   ingredientsList.appendChild(ingredientsItem);
+    //   ingredientsList.setAttribute('class', 'mb-3 text-center');
+    //   // console.log(ingredientsList);
+    // }
 
-    // Serving Size
-    var serving = document.createElement('p');
-    serving.textContent = data.hits[i].recipe.yield;
-    serving.setAttribute('class', 'mb-3 text-center');
-    // console.log(serving);
+    // // Serving Size
+    // var serving = document.createElement('p');
+    // serving.textContent = data.hits[i].recipe.yield;
+    // serving.setAttribute('class', 'mb-3 text-center');
+    // // console.log(serving);
 
-    // Total Calories
-    var calories = document.createElement('p');
-    calories.textContent =
-      `Total Calories: ` + data.hits[i].recipe.calories.toFixed(2);
-      calories.setAttribute('class', 'mb-3 text-center');
-    // console.log(calories);
+    // // Total Calories
+    // var calories = document.createElement('p');
+    // calories.textContent =
+    //   `Total Calories: ` + data.hits[i].recipe.calories.toFixed(2);
+    //   calories.setAttribute('class', 'mb-3 text-center');
+    // // console.log(calories);
 
-    // Total Fat
-    var fat = document.createElement('p');
-    fat.textContent =
-     `Total Fat (g): ` + data.hits[i].recipe.digest[0].total.toFixed(2);
-     fat.setAttribute('class', 'mb-3 text-center');
-    // console.log(fat);
+    // // Total Fat
+    // var fat = document.createElement('p');
+    // fat.textContent =
+    //  `Total Fat (g): ` + data.hits[i].recipe.digest[0].total.toFixed(2);
+    //  fat.setAttribute('class', 'mb-3 text-center');
+    // // console.log(fat);
 
-    // Total Carbs
-    var carbs = document.createElement('p');
-    carbs.textContent =
-    `Total Carbohydrate (g): ` + data.hits[i].recipe.digest[1].total.toFixed(2);
-    carbs.setAttribute('class', 'mb-3 text-center');
-    // console.log(carbs);
+    // // Total Carbs
+    // var carbs = document.createElement('p');
+    // carbs.textContent =
+    // `Total Carbohydrate (g): ` + data.hits[i].recipe.digest[1].total.toFixed(2);
+    // carbs.setAttribute('class', 'mb-3 text-center');
+    // // console.log(carbs);
 
-    // Total Protein
-    var protein = document.createElement('p');
-    protein.textContent =
-    `Protein (g): ` + data.hits[i].recipe.digest[2].total.toFixed(2);
-    protein.setAttribute('class', 'mb-3 text-center');
-    // console.log(protein);
+    // // Total Protein
+    // var protein = document.createElement('p');
+    // protein.textContent =
+    // `Protein (g): ` + data.hits[i].recipe.digest[2].total.toFixed(2);
+    // protein.setAttribute('class', 'mb-3 text-center');
+    // // console.log(protein);
 
-    // Total Sodium
-    var sodium = document.createElement('p');
-    sodium.textContent =
-    `Sodium (mg): ` + data.hits[i].recipe.digest[3].total.toFixed(2);
-    sodium.setAttribute('class', 'mb-3 text-center');
-    // console.log(sodium);
+    // // Total Sodium
+    // var sodium = document.createElement('p');
+    // sodium.textContent =
+    // `Sodium (mg): ` + data.hits[i].recipe.digest[3].total.toFixed(2);
+    // sodium.setAttribute('class', 'mb-3 text-center');
+    // // console.log(sodium);
 
-    // Link
-    var link = document.createElement('a');
-    var linkData = data.hits[i].recipe.shareAs;
-    link.setAttribute('href', linkData);
-    link.setAttribute('target', '_blank');
-    link.setAttribute(
-      'class',
-      'inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-[#420948] rounded-lg hover:bg-black mb-3'
-    );
-    link.textContent = 'View More';
-    // console.log(link);
+    // // Link
+    // var link = document.createElement('a');
+    // var linkData = data.hits[i].recipe.shareAs;
+    // link.setAttribute('href', linkData);
+    // link.setAttribute('target', '_blank');
+    // link.setAttribute(
+    //   'class',
+    //   'inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-[#420948] rounded-lg hover:bg-black mb-3'
+    // );
+    // link.textContent = 'View More';
+    // // console.log(link);
 
     // Append to tailwind card
     testCard.appendChild(image);
@@ -291,7 +293,8 @@ function selectCountry(country) {
 function musicPageContinue(userMusic) {
   // userMusic.preventDefault();
   userGenre = userMusic
-    getFakeYTdata();
+  getYTdata();
+  
     // displayPage('music-page', 'recipe-gallery-page')
 }
 
@@ -315,129 +318,129 @@ function musicPageContinue(userMusic) {
 // }
 
 
-function getFakeYTdata() {
-    var fakeData = {
-        "kind": "youtube#searchListResponse",
-        "etag": "q3Zjdb5AXXe32RWx8Dx8s-h4c78",
-        "nextPageToken": "CAEQAA",
-        "regionCode": "US",
-        "pageInfo": {
-          "totalResults": 1000000,
-          "resultsPerPage": 1
-        },
-        "items": [
-          {
-            "kind": "youtube#searchResult",
-            "etag": "251ciU54FGaZxfwREouXUOp85Yk",
-            "id": {
-              "kind": "youtube#video",
-              "videoId": "L818dKnixGs"
-            },
-            "snippet": {
-              "publishedAt": "2022-08-15T17:43:52Z",
-              "channelId": "UCYbggI6qVceWa1_1dfH0hMA",
-              "title": "FUNNY CAT MEMES COMPILATION OF 2022 PART 44",
-              "description": "Try Not To Laugh Challenge is a hilarious compilation of Funny and cute Animal Videos, featuring some of the funniest cats ...",
-              "thumbnails": {
-                "default": {
-                  "url": "https://i.ytimg.com/vi/3Mz-KwDofLQ/default.jpg",
-                  "width": 120,
-                  "height": 90
-                },
-                "medium": {
-                  "url": "https://i.ytimg.com/vi/3Mz-KwDofLQ/mqdefault.jpg",
-                  "width": 320,
-                  "height": 180
-                },
-                "high": {
-                  "url": "https://i.ytimg.com/vi/3Mz-KwDofLQ/hqdefault.jpg",
-                  "width": 480,
-                  "height": 360
-                }
-              },
-              "channelTitle": "Meowthemall",
-              "liveBroadcastContent": "none",
-              "publishTime": "2022-08-15T17:43:52Z"
-            }
-          },
-          {
-            "kind": "youtube#searchResult",
-            "etag": "251ciU54FGaZxfwREouXUOp85Yk",
-            "id": {
-              "kind": "youtube#video",
-              "videoId": "3CuAboWK1ec"
-            },
-            "snippet": {
-              "publishedAt": "2022-08-15T17:43:52Z",
-              "channelId": "UCYbggI6qVceWa1_1dfH0hMA",
-              "title": "FUNNY CAT MEMES COMPILATION OF 2022 PART 44",
-              "description": "Try Not To Laugh Challenge is a hilarious compilation of Funny and cute Animal Videos, featuring some of the funniest cats ...",
-              "thumbnails": {
-                "default": {
-                  "url": "https://i.ytimg.com/vi/3Mz-KwDofLQ/default.jpg",
-                  "width": 120,
-                  "height": 90
-                },
-                "medium": {
-                  "url": "https://i.ytimg.com/vi/3Mz-KwDofLQ/mqdefault.jpg",
-                  "width": 320,
-                  "height": 180
-                },
-                "high": {
-                  "url": "https://i.ytimg.com/vi/3Mz-KwDofLQ/hqdefault.jpg",
-                  "width": 480,
-                  "height": 360
-                }
-              },
-              "channelTitle": "Meowthemall",
-              "liveBroadcastContent": "none",
-              "publishTime": "2022-08-15T17:43:52Z"
-            }
-          },
-          {
-            "kind": "youtube#searchResult",
-            "etag": "251ciU54FGaZxfwREouXUOp85Yk",
-            "id": {
-              "kind": "youtube#video",
-              "videoId": "jRetP9JmmO4"
-            },
-            "snippet": {
-              "publishedAt": "2022-08-15T17:43:52Z",
-              "channelId": "UCYbggI6qVceWa1_1dfH0hMA",
-              "title": "FUNNY CAT MEMES COMPILATION OF 2022 PART 44",
-              "description": "Try Not To Laugh Challenge is a hilarious compilation of Funny and cute Animal Videos, featuring some of the funniest cats ...",
-              "thumbnails": {
-                "default": {
-                  "url": "https://i.ytimg.com/vi/3Mz-KwDofLQ/default.jpg",
-                  "width": 120,
-                  "height": 90
-                },
-                "medium": {
-                  "url": "https://i.ytimg.com/vi/3Mz-KwDofLQ/mqdefault.jpg",
-                  "width": 320,
-                  "height": 180
-                },
-                "high": {
-                  "url": "https://i.ytimg.com/vi/3Mz-KwDofLQ/hqdefault.jpg",
-                  "width": 480,
-                  "height": 360
-                }
-              },
-              "channelTitle": "Meowthemall",
-              "liveBroadcastContent": "none",
-              "publishTime": "2022-08-15T17:43:52Z"
-            }
-          }
-        ]
-    }
+// function getFakeYTdata() {
+//     var fakeData = {
+//         "kind": "youtube#searchListResponse",
+//         "etag": "q3Zjdb5AXXe32RWx8Dx8s-h4c78",
+//         "nextPageToken": "CAEQAA",
+//         "regionCode": "US",
+//         "pageInfo": {
+//           "totalResults": 1000000,
+//           "resultsPerPage": 1
+//         },
+//         "items": [
+//           {
+//             "kind": "youtube#searchResult",
+//             "etag": "251ciU54FGaZxfwREouXUOp85Yk",
+//             "id": {
+//               "kind": "youtube#video",
+//               "videoId": "L818dKnixGs"
+//             },
+//             "snippet": {
+//               "publishedAt": "2022-08-15T17:43:52Z",
+//               "channelId": "UCYbggI6qVceWa1_1dfH0hMA",
+//               "title": "FUNNY CAT MEMES COMPILATION OF 2022 PART 44",
+//               "description": "Try Not To Laugh Challenge is a hilarious compilation of Funny and cute Animal Videos, featuring some of the funniest cats ...",
+//               "thumbnails": {
+//                 "default": {
+//                   "url": "https://i.ytimg.com/vi/3Mz-KwDofLQ/default.jpg",
+//                   "width": 120,
+//                   "height": 90
+//                 },
+//                 "medium": {
+//                   "url": "https://i.ytimg.com/vi/3Mz-KwDofLQ/mqdefault.jpg",
+//                   "width": 320,
+//                   "height": 180
+//                 },
+//                 "high": {
+//                   "url": "https://i.ytimg.com/vi/3Mz-KwDofLQ/hqdefault.jpg",
+//                   "width": 480,
+//                   "height": 360
+//                 }
+//               },
+//               "channelTitle": "Meowthemall",
+//               "liveBroadcastContent": "none",
+//               "publishTime": "2022-08-15T17:43:52Z"
+//             }
+//           },
+//           {
+//             "kind": "youtube#searchResult",
+//             "etag": "251ciU54FGaZxfwREouXUOp85Yk",
+//             "id": {
+//               "kind": "youtube#video",
+//               "videoId": "3CuAboWK1ec"
+//             },
+//             "snippet": {
+//               "publishedAt": "2022-08-15T17:43:52Z",
+//               "channelId": "UCYbggI6qVceWa1_1dfH0hMA",
+//               "title": "FUNNY CAT MEMES COMPILATION OF 2022 PART 44",
+//               "description": "Try Not To Laugh Challenge is a hilarious compilation of Funny and cute Animal Videos, featuring some of the funniest cats ...",
+//               "thumbnails": {
+//                 "default": {
+//                   "url": "https://i.ytimg.com/vi/3Mz-KwDofLQ/default.jpg",
+//                   "width": 120,
+//                   "height": 90
+//                 },
+//                 "medium": {
+//                   "url": "https://i.ytimg.com/vi/3Mz-KwDofLQ/mqdefault.jpg",
+//                   "width": 320,
+//                   "height": 180
+//                 },
+//                 "high": {
+//                   "url": "https://i.ytimg.com/vi/3Mz-KwDofLQ/hqdefault.jpg",
+//                   "width": 480,
+//                   "height": 360
+//                 }
+//               },
+//               "channelTitle": "Meowthemall",
+//               "liveBroadcastContent": "none",
+//               "publishTime": "2022-08-15T17:43:52Z"
+//             }
+//           },
+//           {
+//             "kind": "youtube#searchResult",
+//             "etag": "251ciU54FGaZxfwREouXUOp85Yk",
+//             "id": {
+//               "kind": "youtube#video",
+//               "videoId": "jRetP9JmmO4"
+//             },
+//             "snippet": {
+//               "publishedAt": "2022-08-15T17:43:52Z",
+//               "channelId": "UCYbggI6qVceWa1_1dfH0hMA",
+//               "title": "FUNNY CAT MEMES COMPILATION OF 2022 PART 44",
+//               "description": "Try Not To Laugh Challenge is a hilarious compilation of Funny and cute Animal Videos, featuring some of the funniest cats ...",
+//               "thumbnails": {
+//                 "default": {
+//                   "url": "https://i.ytimg.com/vi/3Mz-KwDofLQ/default.jpg",
+//                   "width": 120,
+//                   "height": 90
+//                 },
+//                 "medium": {
+//                   "url": "https://i.ytimg.com/vi/3Mz-KwDofLQ/mqdefault.jpg",
+//                   "width": 320,
+//                   "height": 180
+//                 },
+//                 "high": {
+//                   "url": "https://i.ytimg.com/vi/3Mz-KwDofLQ/hqdefault.jpg",
+//                   "width": 480,
+//                   "height": 360
+//                 }
+//               },
+//               "channelTitle": "Meowthemall",
+//               "liveBroadcastContent": "none",
+//               "publishTime": "2022-08-15T17:43:52Z"
+//             }
+//           }
+//         ]
+//     }
 
-  YTdata = fakeData;
-  localStorage.setItem("YTdata", JSON.stringify(YTdata));
-  buildYTurl();
-};
+  // YTdata = fakeData;
+  // localStorage.setItem("YTdata", JSON.stringify(YTdata));
+  // buildYTurl();
+// };
 
 function getYTdata() {
-    var queryUrlYT = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=7&q=" + cuisine + "+" + userGenre + "+" + "music&videoDuration=short&type=video&key=" + YTAPIkey;
+    var queryUrlYT = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=7&q=" + cuisine + "+" + userGenre + "+" + "music&publishedAfter=2020-01-10T00%3A00%3A00.0Z&videoLicense=creativeCommon&videoEmbeddable=true&videoDuration=short&type=video&key=" + YTAPIkey;
     //console.log(queryUrlYT);
     fetch(queryUrlYT)
         .then(function (response) {
@@ -446,6 +449,8 @@ function getYTdata() {
                    //console.log(typeof(data.items[0].id.videoId));
                     YTdata = data;
                     //carouselBtn(0);
+                    localStorage.setItem("YTdata", JSON.stringify(YTdata));
+                    buildYTurl();
 
           // buildYTurl();
 

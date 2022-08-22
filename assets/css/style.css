@@ -51,6 +51,8 @@ h1, h2, h3, h4 button {
     font-size: 28px;
     font-family: 'Abril Fatface', cursive;
 }
+
+
 .hidden {
     display: none;
 }
