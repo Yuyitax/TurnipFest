@@ -282,6 +282,7 @@ function useApiData(data) {
 function selectCountry(country) {
   cuisine = country;
   localStorage.setItem("cuisine", country);
+  
   // console.log(typeof(cuisine));
 }
 

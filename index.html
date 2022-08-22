@@ -31,7 +31,7 @@
         <!-- Added this new div for the main purple box -->
         <div id="purple-container" class="flex flex-col h-fit bg-[#17031D]/80 mx-auto pt-5 pb-5 rounded-2xl w-3/4 mb-[10%] bg-local visible">
 
-            <div id="food-diet-page" class="flex flex-wrap flex-col p-10 hidden">
+            <div id="food-diet-page" class="flex flex-wrap flex-col p-10">
                 <!-- search box area, this is the "q" element on the api fetch -->
                 <section id="search-bar-area">
                     <h2 class="text-[30px] leading-loose mb-5 text-white">Think of a food, or ingredient..</h2>
@@ -98,31 +98,31 @@
                 <h2 class="text-[32px] leading-loose mb-5 text-white text-center">Where would you like to take your taste buds?</h2>
                 <section class="mx-auto grid grid-cols-3 gap-10 w-fit">
 
-                <button id="american" class="bg-[url('/assets/images/american-cuisine.png')] bg-contain h-[200px] w-[200px] text-white ml-5 mr-5" type="submit" value="american" onclick="selectCountry('american'); displayPage('country-page', 'music-page')">American</button>
+                <button id="american" class="bg-[url('./assets/images/american-cuisine.png')] bg-contain h-[200px] w-[200px] text-white ml-5 mr-5" type="submit" value="american" onclick="selectCountry('american'); displayPage('country-page', 'music-page')">American</button>
 
-                <button id="asian" class="bg-[url('/assets/images/asian-cuisine.png')] bg-contain h-[200px] w-[200px] text-white ml-5 mr-5" type="submit" value="asian" onclick="selectCountry('asian'); displayPage('country-page', 'music-page')">Asian</button>
+                <button id="asian" class="bg-[url('./assets/images/asian-cuisine.png')] bg-contain h-[200px] w-[200px] text-white ml-5 mr-5" type="submit" value="asian" onclick="selectCountry('asian'); displayPage('country-page', 'music-page')">Asian</button>
 
-                <button id="caribbean" class="bg-[url('/assets/images/caribbean-cuisine.png')] bg-contain h-[200px] w-[200px] text-white ml-5 mr-5" type="submit" value="caribbean" onclick="selectCountry('caribbean'); displayPage('country-page', 'music-page')">Caribbean</button>
+                <button id="caribbean" class="bg-[url('./assets/images/caribbean-cuisine.png')] bg-contain h-[200px] w-[200px] text-white ml-5 mr-5" type="submit" value="caribbean" onclick="selectCountry('caribbean'); displayPage('country-page', 'music-page')">Caribbean</button>
 
-                <button id="french" class="bg-[url('/assets/images/french-cuisine.png')] bg-contain h-[200px] w-[200px] text-white ml-5 mr-5" type="submit" value="french" onclick="selectCountry('french'); displayPage('country-page', 'music-page')">French</button>
+                <button id="french" class="bg-[url('./assets/images/french-cuisine.png')] bg-contain h-[200px] w-[200px] text-white ml-5 mr-5" type="submit" value="french" onclick="selectCountry('french'); displayPage('country-page', 'music-page')">French</button>
 
-                <button id="indian" class="bg-[url('/assets/images/indian-cuisine.png')] bg-contain h-[200px] w-[200px] text-white ml-5 mr-5" type="submit" value="indian" onclick="selectCountry('indian'); displayPage('country-page', 'music-page')">Indian</button>
+                <button id="indian" class="bg-[url('./assets/images/indian-cuisine.png')] bg-contain h-[200px] w-[200px] text-white ml-5 mr-5" type="submit" value="indian" onclick="selectCountry('indian'); displayPage('country-page', 'music-page')">Indian</button>
 
-                <button id="italian" class="bg-[url('/assets/images/italian-cuisine.png')] bg-contain h-[200px] w-[200px] text-white ml-5 mr-5" type="submit" value="italian" onclick="selectCountry('italian'); displayPage('country-page', 'music-page')">Italian</button>
+                <button id="italian" class="bg-[url('./assets/images/italian-cuisine.png')] bg-contain h-[200px] w-[200px] text-white ml-5 mr-5" type="submit" value="italian" onclick="selectCountry('italian'); displayPage('country-page', 'music-page')">Italian</button>
                 </section>
             </div>
 
 
 <!-- Goal: User can choose the different genre respective to country that they picked. -->
-            <div class="p-10" id="music-page">
+            <div class="p-10 hidden" id="music-page">
                 <section class="genres">
                     <h2 class="text-[32px] leading-loose mb-2 text-white text-center">What genre inspires you most?</h2>
                     <p class="text-[18px] mb-8 text-white text-center">You'll be inspired with music from your cuisine of choice.</p>
                         <form  class="flex flex-wrap mx-auto w-fit gap-8" id="select-genre">
-                            <button class="bg-[url('assets/images/black-vinyl-record.png')] bg-contain h-[210px] w-[210px] text-white hover:animate-spin" onclick="musicPageContinue('traditional'); displayPage('music-page', 'recipe-gallery-page')" type="button" id="traditional" value="traditional" name="genre">Traditional</button>
-                            <button class="bg-[url('/assets/images/black-vinyl-record.png')] bg-contain h-[210px] w-[210px] text-white hover:animate-spin" onclick="musicPageContinue('pop'); displayPage('music-page', 'recipe-gallery-page')" type="button" id="pop" value="pop" name="genre">Pop</button>
-                            <button class="bg-[url('/assets/images/black-vinyl-record.png')] bg-contain h-[210px] w-[210px] text-white hover:animate-spin" onclick="musicPageContinue('instrumental'); displayPage('music-page', 'recipe-gallery-page')" type="button" id="instrumental" value="instrumental" name="genre">Instrumental</button>
-                            <button class="bg-[url('/assets/images/black-vinyl-record.png')] bg-contain h-[210px] w-[210px] text-white hover:animate-spin" onclick="musicPageContinue('rock'); displayPage('music-page', 'recipe-gallery-page')" type="button" id="rock" value="rock" name="genre">Rock</button>
+                            <button class="bg-[url('./assets/images/black-vinyl-record.png')] bg-contain h-[210px] w-[210px] text-white hover:animate-spin" onclick="musicPageContinue('traditional'); displayPage('music-page', 'recipe-gallery-page')" type="button" id="traditional" value="traditional" name="genre">Traditional</button>
+                            <button class="bg-[url('./assets/images/black-vinyl-record.png')] bg-contain h-[210px] w-[210px] text-white hover:animate-spin" onclick="musicPageContinue('pop'); displayPage('music-page', 'recipe-gallery-page')" type="button" id="pop" value="pop" name="genre">Pop</button>
+                            <button class="bg-[url('./assets/images/black-vinyl-record.png')] bg-contain h-[210px] w-[210px] text-white hover:animate-spin" onclick="musicPageContinue('instrumental'); displayPage('music-page', 'recipe-gallery-page')" type="button" id="instrumental" value="instrumental" name="genre">Instrumental</button>
+                            <button class="bg-[url('./assets/images/black-vinyl-record.png')] bg-contain h-[210px] w-[210px] text-white hover:animate-spin" onclick="musicPageContinue('rock'); displayPage('music-page', 'recipe-gallery-page')" type="button" id="rock" value="rock" name="genre">Rock</button>
                         </form>
 
 

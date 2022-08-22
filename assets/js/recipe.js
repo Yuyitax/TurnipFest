@@ -7,7 +7,7 @@ var currentVideoIndex = 0;
 var carousel = document.querySelector(".carouselbox");
 var nextBtn = carousel.querySelector(".next");
 var previousBtn = carousel.querySelector(".previous");
-
+var cuisine = localStorage.getItem("cuisine");
 
 var h2 = document.getElementById('h2');
 h2.textContent = foodData.hits[userRecipe].recipe.label;
